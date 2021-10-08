@@ -7,12 +7,13 @@ import { fetchAPI } from "../lib/api"
 
 const Home = ({ articles, categories, homepage }) => {
   const lastArticles = articles.slice(articles.length - 4, articles.length)
-  const ASEstArticles = articles.filter(
-    (article) => article.continent.slug === "asie-du-sud-est"
-  )
-  const AmSArticles = articles.filter(
-    (article) => article.continent.slug === "amerique-du-sud"
-  )
+  console.log(articles)
+  const ASEstArticles =
+    articles &&
+    articles.filter((article) => article.continent?.slug === "asie-du-sud-est")
+  const AmSArticles =
+    articles &&
+    articles.filter((article) => article.continent?.slug === "amerique-du-sud")
 
   return (
     <div>

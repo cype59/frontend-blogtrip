@@ -32,16 +32,15 @@ const Continent = ({ continent, continents }) => {
 
 export async function getStaticPaths() {
   const continents = await fetchAPI("/continents")
+  console.log("continents: " + continents)
 
-  if (continents) {
-    return {
-      paths: continents.map((continent) => ({
-        params: {
-          continentslug: continent.slug,
-        },
-      })),
-      fallback: false,
-    }
+  return {
+    paths: continents.map((continent) => ({
+      params: {
+        continentslug: continent.slug,
+      },
+    })),
+    fallback: false,
   }
 }
 
