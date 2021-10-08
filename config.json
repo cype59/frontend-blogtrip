@@ -1,0 +1,5 @@
+{
+    "STRAPI_URL": "http://localhost:1337",
+    "STRAPI_DOMAIN": "localhost",
+    "FRONT_URL": "http://localhost:3000"
+}

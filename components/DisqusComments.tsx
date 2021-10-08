@@ -1,9 +1,10 @@
 import { DiscussionEmbed } from "disqus-react"
+import config from "../config.json"
 
 const DisqusComments = ({ article }) => {
   const disqusShortname = "followmytripcomment"
   const disqusConfig = {
-    url: `http://localhost:3000/article/${article.slug}`,
+    url: `${config.FRONT_URL}/article/${article.slug}`,
     identifier: article.slug,
     title: article.title,
   }
