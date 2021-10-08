@@ -13,8 +13,6 @@ const Category = ({ category, categories }) => {
     metaDescription: `All ${category.name} articles`,
   }
 
-  console.log(category.continents)
-
   return (
     <Layout categories={categories}>
       <Seo seo={seo} />

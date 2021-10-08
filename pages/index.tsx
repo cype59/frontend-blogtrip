@@ -7,7 +7,6 @@ import { fetchAPI } from "../lib/api"
 
 const Home = ({ articles, categories, homepage }) => {
   const lastArticles = articles.slice(articles.length - 4, articles.length)
-  console.log(articles)
   const ASEstArticles =
     articles &&
     articles.filter((article) => article.continent?.slug === "asie-du-sud-est")

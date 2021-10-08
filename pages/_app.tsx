@@ -1,11 +1,13 @@
 import App from "next/app"
 import Head from "next/head"
 import "../assets/css/style.css"
-import { createContext } from "react"
+import React, { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
+import Script from "next/script"
+
 config.autoAddCss = false
 
 // Store Strapi Global object in context
@@ -16,6 +18,24 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script
+        strategy="lazyOnload"
+        id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
+      >
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+                `}
+      </Script>
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
