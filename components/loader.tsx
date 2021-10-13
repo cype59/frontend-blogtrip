@@ -26,6 +26,8 @@ const Loader = ({ loading }) => {
 
     const randombgColor = bgColor[Math.floor(Math.random() * bgColor.length)]
 
+    console.log("loader")
+
     return (
       <DisplayLoader bgColor={randombgColor}>
         <motion.div
