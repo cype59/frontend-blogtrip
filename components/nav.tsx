@@ -220,8 +220,8 @@ const StyledMenu = styled.nav<IStyledBurgerProps>`
       props.open ? "translateY(0%)" : "translateY(-100%)"};
     transition: transform 0.3s ease-in-out;
     .NameMenu {
-      font-size: 2rem;
-      padding: 2rem 0;
+      font-size: 1.5rem;
+      padding: 1.5rem 0;
       letter-spacing: 0.2rem;
       color: #ffffff;
       transition: color 0.3s linear;

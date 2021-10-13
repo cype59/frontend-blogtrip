@@ -61,6 +61,11 @@ const ArticleContainer = styled.div`
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
+  @media (max-width: 1024px) {
+    width: 80%;
+    margin-left: 10%;
+  }
 `
 
 const BannerAuthor = styled.div``
