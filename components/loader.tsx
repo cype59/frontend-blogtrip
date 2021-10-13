@@ -29,22 +29,22 @@ const Loader = ({ loading }) => {
     console.log("loader")
 
     return (
-      <DisplayLoader bgColor={randombgColor}>
-        {/* <motion.div
-          initial={{ y: -300 }}
-          animate={{ y: 0 }}
-          transition={{ type: "spring", bounce: 0.6 }}
-          exit={{ y: -300 }}
-        >
-          <Lottie
-            options={defaultOptions}
-            height={400}
-            width={400}
-            speed={1.5}
-          />
-        </motion.div> */}
-        LOADINGGGGGGGGGG
-      </DisplayLoader>
+      // <DisplayLoader bgColor={randombgColor}>
+      //   <motion.div
+      //     initial={{ y: -300 }}
+      //     animate={{ y: 0 }}
+      //     transition={{ type: "spring", bounce: 0.6 }}
+      //     exit={{ y: -300 }}
+      //   >
+      //     <Lottie
+      //       options={defaultOptions}
+      //       height={400}
+      //       width={400}
+      //       speed={1.5}
+      //     />
+      //   </motion.div>
+      // </DisplayLoader>
+      <div>LOADDDDDINGNNGNG</div>
     )
   } else {
     return null
