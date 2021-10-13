@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
-import React from "react"
-import Lottie from "react-lottie"
+import React, { createRef, RefObject, useEffect } from "react"
+import lottie from "lottie-web"
 import styled from "styled-components"
 import earthLoader from "../lotties/earth-bouncing.json"
 
@@ -14,14 +14,22 @@ const Loader = ({ loading }) => {
     "#e67d23",
     "#e64b3c",
   ]
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: earthLoader,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  }
+
+  let animationContainer = createRef()
+
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animationContainer.current as Element,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: earthLoader,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    })
+    return () => anim.destroy() // optional clean up for unmounting
+  })
 
   const randombgColor = bgColor[Math.floor(Math.random() * bgColor.length)]
 
@@ -34,11 +42,9 @@ const Loader = ({ loading }) => {
             animate={{ y: 0 }}
             transition={{ type: "spring", bounce: 0.6 }}
           >
-            <Lottie
-              options={defaultOptions}
-              height={400}
-              width={400}
-              speed={1.5}
+            <div
+              ref={animationContainer as RefObject<HTMLDivElement>}
+              style={{ width: "30vw" }}
             />
           </motion.div>
         </DisplayLoader>
