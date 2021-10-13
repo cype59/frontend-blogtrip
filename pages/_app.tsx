@@ -19,16 +19,20 @@ export const GlobalContext = createContext({})
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
   const router = useRouter()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [currentPathname, setCurrentPathname] = useState<string>("")
 
   useEffect(() => {
-    const handleStart = () => {
-      setLoading(true)
+    const handleStart = (url) => {
+      console.log("url: " + url)
+      console.log("router.pathname: " + currentPathname)
+
+      url !== currentPathname && setLoading(true)
+      setCurrentPathname(url)
     }
-    const handleComplete = () => {
-      setTimeout(() => {
-        setLoading(false)
-      }, 700)
+    const handleComplete = (url) => {
+      console.log("url complete : " + currentPathname)
+      setLoading(false)
     }
     router.events.on("routeChangeStart", handleStart)
     router.events.on("routeChangeComplete", handleComplete)
@@ -39,7 +43,7 @@ const MyApp = ({ Component, pageProps }) => {
       router.events.off("routeChangeComplete", handleComplete)
       router.events.off("routeChangeError", handleComplete)
     }
-  }, [router])
+  }, [router, router.pathname, currentPathname])
 
   return (
     <>
@@ -65,8 +69,7 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
       <GlobalContext.Provider value={global}>
-        <Loader loading={loading} />
-        <Component {...pageProps} />
+        {loading ? <Loader loading={loading} /> : <Component {...pageProps} />}
       </GlobalContext.Provider>
     </>
   )
