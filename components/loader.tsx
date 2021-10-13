@@ -30,7 +30,7 @@ const Loader = ({ loading }) => {
 
     return (
       <DisplayLoader bgColor={randombgColor}>
-        <motion.div
+        {/* <motion.div
           initial={{ y: -300 }}
           animate={{ y: 0 }}
           transition={{ type: "spring", bounce: 0.6 }}
@@ -42,7 +42,8 @@ const Loader = ({ loading }) => {
             width={400}
             speed={1.5}
           />
-        </motion.div>
+        </motion.div> */}
+        LOADINGGGGGGGGGG
       </DisplayLoader>
     )
   } else {
