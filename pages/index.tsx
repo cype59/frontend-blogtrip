@@ -6,7 +6,9 @@ import Seo from "../components/seo"
 import { fetchAPI } from "../lib/api"
 
 const Home = ({ articles, categories, homepage }) => {
-  const lastArticles = articles.slice(articles.length - 4, articles.length)
+  const lastArticles = articles
+    .slice(articles.length - 4, articles.length)
+    .reverse()
   const ASEstArticles =
     articles &&
     articles.filter((article) => article.continent?.slug === "asie-du-sud-est")

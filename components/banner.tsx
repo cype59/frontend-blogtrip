@@ -14,9 +14,6 @@ const Banner = ({ lastArticle }) => {
         <MyImage image={lastArticle.image} fullRatio={true} />
         <BannerItem>
           <ArticleTitle>{lastArticle?.title || ""}</ArticleTitle>
-          {/* <ArticleDescription>
-            {lastArticle?.description || ""}
-          </ArticleDescription> */}
           <BannerGrid>
             <Link
               as={`/article/${lastArticle.slug}`}
@@ -79,16 +76,6 @@ const ArticleTitle = styled.div`
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-`
-
-const ArticleDescription = styled.div`
-  color: white;
-  position: relative;
-  font-size: 1.5vw;
-  font-weight: 200;
-  padding-bottom: 2%;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  font-family: "Open Sans", sans-serif;
 `
 
 const BannerGrid = styled.div`
