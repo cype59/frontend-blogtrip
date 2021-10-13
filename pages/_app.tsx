@@ -26,7 +26,9 @@ const MyApp = ({ Component, pageProps }) => {
       url !== router.pathname ? setLoading(true) : setLoading(false)
     }
     const handleComplete = (url) => {
-      setLoading(false)
+      setTimeout(() => {
+        setLoading(false)
+      }, 700)
     }
     router.events.on("routeChangeStart", handleStart)
     router.events.on("routeChangeComplete", handleComplete)
