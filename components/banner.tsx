@@ -66,6 +66,16 @@ const BannerItem = styled.div`
   width: 60%;
   margin-top: 50vh;
   transform: translateY(-50%);
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
 `
 
 const ArticleTitle = styled.div`
@@ -76,6 +86,14 @@ const ArticleTitle = styled.div`
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 1024px) {
+    font-size: 9vw;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 9.5vw;
+  }
 `
 
 const BannerGrid = styled.div`
@@ -105,6 +123,18 @@ const BannerButton = styled(motion.button)`
     background-color: rgba(51, 51, 51, 0.5);
     transition: all 0.4s;
   }
+
+  @media (max-width: 1024px) {
+    font-size: 2.5vw;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `
 
 const BannerText = styled.div`
@@ -118,6 +148,18 @@ const BannerText = styled.div`
   p {
     margin-top: 0;
     margin-bottom: 0.3em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 2.5vw;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    text-align: left;
+    p {
+      margin-top: 5px;
+    }
   }
 `
 

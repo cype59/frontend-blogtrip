@@ -88,6 +88,17 @@ const CardTitle = styled.h3`
   position: absolute;
   bottom: 0;
   z-index: 1;
+
+  @media (max-width: 1024px) {
+    font-size: 2vw;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-left: 0;
+    width: 100%;
+    font-size: 5vw;
+  }
 `
 
 const CardDescription = styled.div`
@@ -120,6 +131,21 @@ const CardDescription = styled.div`
     position: absolute;
     bottom: 5px;
     width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    p {
+      font-size: 2vw;
+    }
+
+    div {
+      font-size: 1vw;
+    }
+  }
+
+  @media (max-width: 768px) {
+    bottom: -58px;
+    height: 60px;
   }
 `
 

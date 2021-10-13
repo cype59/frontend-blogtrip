@@ -12,6 +12,7 @@ import {
 
 const Nav = ({ categories }) => {
   const [show, handleShow] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -49,20 +50,6 @@ const Nav = ({ categories }) => {
               <Name>Conseils</Name>
             </Link>
           </Item>
-
-          {/* {categories.map((category) => {
-            return (
-              <Item key={category.id}>
-                <Link
-                  as={`/category/${category.slug}`}
-                  href="/category/[id]"
-                  passHref
-                >
-                  <Name>{category.name}</Name>
-                </Link>
-              </Item>
-            )
-          })} */}
         </NavbarItems>
         <SocialMedia>
           <a
@@ -80,6 +67,29 @@ const Nav = ({ categories }) => {
           </a> */}
         </SocialMedia>
       </Navbar>
+      <NavbarBurger show={show}>
+        <StyledBurger open={open} onClick={() => setOpen(!open)}>
+          <div />
+          <div />
+          <div />
+        </StyledBurger>
+        <Logo>
+          <Link href="/" passHref>
+            <Image src={logo} alt="FMTripLogo" />
+          </Link>
+        </Logo>
+        <StyledMenu open={open}>
+          <Link href="/" passHref>
+            <Name className="NameMenu">Accueil</Name>
+          </Link>
+          <Link href="/destinations" passHref>
+            <Name className="NameMenu">Destinations</Name>
+          </Link>
+          <Link href="/conseils" passHref>
+            <Name className="NameMenu">Conseils</Name>
+          </Link>
+        </StyledMenu>
+      </NavbarBurger>
     </div>
   )
 }
@@ -103,12 +113,22 @@ const Navbar = styled.div<NavbarProps>`
       : "linear-gradient(180deg, #111111a4 0%, rgba(17,17,17,0) 100%)"};
 
   transition: ${(props) => !props.show && "background 0.4s ease-in"};
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 const Logo = styled.div`
   position: relative;
   width: 70px;
   height: auto;
+
+  @media (max-width: 768px) {
+    width: 90px;
+    left: 30px;
+    z-index: 6;
+  }
 `
 
 const NavbarItems = styled.ul`
@@ -141,10 +161,6 @@ const Name = styled.a`
   position: relative;
   padding: 1rem 0 0.5rem;
 
-  /* &:hover {
-    transition: all 0.2s ease-in;
-  } */
-
   &::after {
     content: "";
     position: absolute;
@@ -161,6 +177,105 @@ const Name = styled.a`
   &:hover {
     &::after {
       transform: translateX(-50%) scaleX(1);
+    }
+  }
+`
+
+interface INavbarBurgerProps {
+  show: boolean
+}
+
+const NavbarBurger = styled.div<INavbarBurgerProps>`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background: ${(props) =>
+      props.show
+        ? "#111111"
+        : "linear-gradient(180deg, #111111a4 0%, rgba(17,17,17,0) 100%)"};
+
+    transition: ${(props) => !props.show && "background 0.4s ease-in"};
+    align-items: center;
+  }
+`
+
+const StyledMenu = styled.nav<IStyledBurgerProps>`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    flex-direction: column;
+    justify-content: center;
+    background: #111111;
+    transform: ${(props) =>
+      props.open ? "translateY(0%)" : "translateY(-100%)"};
+    transition: transform 0.3s ease-in-out;
+    .NameMenu {
+      font-size: 2rem;
+      padding: 2rem 0;
+      letter-spacing: 0.2rem;
+      color: #ffffff;
+      transition: color 0.3s linear;
+      text-align: center;
+    }
+  }
+`
+
+interface IStyledBurgerProps {
+  open: boolean
+}
+
+const StyledBurger = styled.button<IStyledBurgerProps>`
+  display: none;
+  @media (max-width: 768px) {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+
+    &:focus {
+      outline: none;
+    }
+
+    div {
+      width: 2rem;
+      height: 0.25rem;
+      background: ${(props) => (props.open ? "#EFFFFA" : "#EFFFFA")};
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: 1px;
+
+      :first-child {
+        transform: ${(props) => (props.open ? "rotate(45deg)" : "rotate(0)")};
+      }
+
+      :nth-child(2) {
+        opacity: ${(props) => (props.open ? "0" : "1")};
+        transform: ${(props) =>
+          props.open ? "translateX(20px)" : "translateX(0)"};
+      }
+
+      :nth-child(3) {
+        transform: ${(props) => (props.open ? "rotate(-45deg)" : "rotate(0)")};
+      }
     }
   }
 `
