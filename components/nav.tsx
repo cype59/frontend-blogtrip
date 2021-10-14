@@ -116,6 +116,7 @@ const Navbar = styled.div<NavbarProps>`
 
   @media (max-width: 768px) {
     display: none;
+    z-index: 6;
   }
 `
 
@@ -125,8 +126,8 @@ const Logo = styled.div`
   height: auto;
 
   @media (max-width: 768px) {
-    width: 90px;
-    left: 30px;
+    width: 80px;
+    left: 10px;
     z-index: 6;
   }
 `
@@ -226,6 +227,10 @@ const StyledMenu = styled.nav<IStyledBurgerProps>`
       color: #ffffff;
       transition: color 0.3s linear;
       text-align: center;
+
+      &::after {
+        display: none;
+      }
     }
   }
 `
@@ -238,7 +243,7 @@ const StyledBurger = styled.button<IStyledBurgerProps>`
   display: none;
   @media (max-width: 768px) {
     position: absolute;
-    right: 30px;
+    right: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

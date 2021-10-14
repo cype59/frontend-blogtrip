@@ -63,8 +63,8 @@ const ArticleContainer = styled.div`
   }
 
   @media (max-width: 1024px) {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
   }
 `
 

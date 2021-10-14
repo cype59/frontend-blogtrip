@@ -27,6 +27,9 @@ const Articles = ({ articles, title, category }) => {
       >
         <RowTitle>
           <Title>{title}</Title>
+          <Link as={`/${category}`} href={`/${category}`} passHref>
+            <RowLinkMobile>Voir tout</RowLinkMobile>
+          </Link>
           <AnimatePresence>
             {isHover && (
               <motion.div
@@ -90,14 +93,29 @@ const Title = styled.h2`
   font-family: "Arial Rounded MT Bold", sans-serif;
 `
 
+const RowLinkStyle = `
+font-family: "Arial Rounded MT Bold", sans-serif;
+color: #494949;
+font-size: 1rem;
+font-weight: 500;
+margin-left: 0.5rem;
+padding-top: 6px;
+cursor: pointer;
+`
+
 const RowLink = styled.p`
-  font-family: "Arial Rounded MT Bold", sans-serif;
-  color: #494949;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-left: 0.5rem;
-  padding-top: 6px;
-  cursor: pointer;
+  ${RowLinkStyle}
+  @media (max-width: 880px) {
+    display: none;
+  }
+`
+
+const RowLinkMobile = styled.p`
+  ${RowLinkStyle}
+  display:none;
+  @media (max-width: 880px) {
+    display: flex;
+  }
 `
 
 const Grid = styled.div`

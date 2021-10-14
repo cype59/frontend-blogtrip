@@ -95,6 +95,10 @@ const ArticleTitle = styled.div`
   transform: translateY(-50%);
   margin-left: 5%;
   width: 90%;
+
+  @media (max-width: 768px) {
+    font-size: 9vw;
+  }
 `
 
 export default Category
