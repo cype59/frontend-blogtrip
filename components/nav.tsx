@@ -124,6 +124,7 @@ const Logo = styled.div`
   position: relative;
   width: 70px;
   height: auto;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     width: 80px;

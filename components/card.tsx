@@ -97,7 +97,7 @@ const CardTitle = styled.h3`
     text-align: center;
     margin-left: 0;
     width: 100%;
-    font-size: 5vw;
+    font-size: 3vw;
   }
 `
 

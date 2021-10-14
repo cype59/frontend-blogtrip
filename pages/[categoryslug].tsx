@@ -9,13 +9,14 @@ import CategoryBanner from "../components/categoryBanner"
 import { AnimatePresence, motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes } from "@fortawesome/free-solid-svg-icons"
+import ArticlesFilter from "../components/articlesFilter"
 
 interface ContinentColor {
   category: string
   color: string
 }
 
-const Category = ({ category, categories }) => {
+const Category = ({ category, categories, continents }) => {
   const seo = {
     metaTitle: category.name,
     metaDescription: `All ${category.name} articles`,
@@ -50,15 +51,22 @@ const Category = ({ category, categories }) => {
 
   const { query } = useRouter()
   let bgColor: string = "#f0c30f"
+  let articles
 
   if (query.continent) {
     bgColor = ContinentsColor.find(
       (item) => query.continent === item.category
     ).color
+    articles = continents.find(
+      (continent) => query.continent === continent.slug
+    ).articles
+    console.log(articles)
   } else {
     bgColor = ContinentsColor.find(
       (item) => category.slug === item.category
     ).color
+    articles = categories.find((item) => category.slug === item.slug).articles
+    console.log(articles)
   }
 
   return (
@@ -130,6 +138,7 @@ const Category = ({ category, categories }) => {
           </AnimatePresence>
         </ContainerRow>
       </ContinentContainer>
+      <ArticlesFilter articles={articles.reverse()} />
     </Layout>
   )
 }
@@ -152,9 +161,10 @@ export async function getStaticProps({ params }) {
     await fetchAPI(`/categories?slug=${params.categoryslug}`)
   )[0]
   const categories = await fetchAPI("/categories")
+  const continents = await fetchAPI("/continents")
 
   return {
-    props: { category, categories },
+    props: { category, categories, continents },
     revalidate: 1,
   }
 }
@@ -178,6 +188,10 @@ const BannerImage = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: -10%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-left: 0;
+  }
 `
 
 const ArticleTitle = styled.div`
@@ -192,13 +206,16 @@ const ArticleTitle = styled.div`
   margin-bottom: auto;
 
   @media (max-width: 768px) {
-    font-size: 8vw;
+    font-size: 9vw;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `
 
 const ContinentContainer = styled.div`
   display: flex;
   margin-top: 20px;
+  margin-bottom: 60px;
 `
 
 const ContinentFilter = styled.div`
@@ -211,7 +228,7 @@ const ContinentFilter = styled.div`
   column-gap: 20px;
 
   @media (max-width: 768px) {
-    column-gap: 10px;
+    column-gap: 5px;
   }
 `
 
@@ -240,16 +257,16 @@ const ContinentName = styled(motion.button)<IContinentNameProps>`
   color: #ffffff;
 
   @media (max-width: 768px) {
-    font-size: 2vw;
-    padding-left: 0.7rem;
-    padding-right: 0.7rem;
+    font-size: 2.5vw;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 `
 
 const FilterButton = styled(motion.button)`
-  position: relative;
+  position: absolute;
   cursor: pointer;
   outline: none;
   border: none;
