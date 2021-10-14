@@ -24,14 +24,10 @@ const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const handleStart = (url) => {
-      console.log("url: " + url)
-      console.log("router.pathname: " + currentPathname)
-
       url !== currentPathname && setLoading(true)
       setCurrentPathname(url)
     }
     const handleComplete = (url) => {
-      console.log("url complete : " + currentPathname)
       setLoading(false)
     }
     router.events.on("routeChangeStart", handleStart)
@@ -69,7 +65,8 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
       <GlobalContext.Provider value={global}>
-        {loading ? <Loader loading={loading} /> : <Component {...pageProps} />}
+        <Loader loading={loading} />
+        <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
   )
