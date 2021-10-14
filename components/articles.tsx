@@ -82,6 +82,11 @@ const Container = styled.div`
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `
 
 const RowTitle = styled.div`
