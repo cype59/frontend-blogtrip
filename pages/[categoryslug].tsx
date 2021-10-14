@@ -60,13 +60,11 @@ const Category = ({ category, categories, continents }) => {
     articles = continents.find(
       (continent) => query.continent === continent.slug
     ).articles
-    console.log(articles)
   } else {
     bgColor = ContinentsColor.find(
       (item) => category.slug === item.category
     ).color
     articles = categories.find((item) => category.slug === item.slug).articles
-    console.log(articles)
   }
 
   return (
