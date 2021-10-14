@@ -7,9 +7,6 @@ import { getStrapiMedia } from "../lib/media"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import Script from "next/script"
-import { useState, useEffect } from "react"
-import { useRouter } from "next/router"
-import Loader from "../components/loader"
 
 config.autoAddCss = false
 
@@ -18,28 +15,6 @@ export const GlobalContext = createContext({})
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
-  const router = useRouter()
-  const [loading, setLoading] = useState<boolean>(false)
-  const [currentPathname, setCurrentPathname] = useState<string>("")
-
-  useEffect(() => {
-    const handleStart = (url) => {
-      url !== currentPathname && setLoading(true)
-      setCurrentPathname(url)
-    }
-    const handleComplete = (url) => {
-      setLoading(false)
-    }
-    router.events.on("routeChangeStart", handleStart)
-    router.events.on("routeChangeComplete", handleComplete)
-    router.events.on("routeChangeError", handleComplete)
-
-    return () => {
-      router.events.off("routeChangeStart", handleStart)
-      router.events.off("routeChangeComplete", handleComplete)
-      router.events.off("routeChangeError", handleComplete)
-    }
-  }, [router, router.pathname, currentPathname])
 
   return (
     <>
@@ -65,7 +40,6 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
       <GlobalContext.Provider value={global}>
-        <Loader loading={loading} />
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>

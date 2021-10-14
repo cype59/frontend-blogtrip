@@ -3,16 +3,36 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import px2vw from "../utils/px2vw"
 import Card from "./card"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { AnimatePresence, motion } from "framer-motion"
 
-const Articles = ({ articles, title, category }) => {
+interface IHref {
+  pathname: string
+  query?: {
+    continent: string
+  }
+}
+
+const Articles = ({ articles, title, category, query }) => {
   const [isHover, setIsHover] = useState(false)
 
   var ghostCol = []
   for (var i = 0; i < 4 - articles.length; i++) {
     ghostCol.push(<Col key={i}></Col>)
+  }
+
+  let href: IHref = { pathname: "" }
+
+  if (query !== "") {
+    href = {
+      pathname: category,
+      query: {
+        continent: query,
+      },
+    }
+  } else {
+    href = {
+      pathname: category,
+    }
   }
 
   return (
@@ -27,7 +47,8 @@ const Articles = ({ articles, title, category }) => {
       >
         <RowTitle>
           <Title>{title}</Title>
-          <Link as={`/${category}`} href={`/${category}`} passHref>
+          {}
+          <Link href={href} passHref>
             <RowLinkMobile>Voir tout</RowLinkMobile>
           </Link>
           <AnimatePresence>
@@ -48,7 +69,7 @@ const Articles = ({ articles, title, category }) => {
                 }}
                 exit={{ opacity: 0 }}
               >
-                <Link as={`/${category}`} href={`/${category}`} passHref>
+                <Link href={href} passHref>
                   <RowLink>Voir tout</RowLink>
                 </Link>
               </motion.div>

@@ -25,16 +25,19 @@ const Home = ({ articles, categories, homepage }) => {
         articles={lastArticles}
         title="Derniers articles"
         category="destinations"
+        query=""
       />
       <Articles
         articles={ASEstArticles}
         title="Asie du Sud-Est"
-        category="destinations/asie-du-sud-est"
+        category="destinations"
+        query="asie-du-sud-est"
       />
       <Articles
         articles={AmSArticles}
         title="Amérique du Sud"
-        category="destinations/amerique-du-sud"
+        category="destinations"
+        query="amerique-du-sud"
       />
     </div>
   )

@@ -8,8 +8,6 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { AnimatePresence, motion } from "framer-motion"
 
 const Categories = ({ categories }) => {
-  const [isHover, setIsHover] = useState(false)
-
   var ghostCol = []
   for (var i = 0; i < 4 - categories.length; i++) {
     ghostCol.push(<Col key={i}></Col>)
