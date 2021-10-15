@@ -9,10 +9,19 @@ import {
   faYoutube,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons"
+import { useRouter } from "next/router"
 
 const Nav = ({ categories }) => {
   const [show, handleShow] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const [currentPath, setCurrentPath] = useState<String>("")
+  const router = useRouter()
+
+  if (currentPath !== router.asPath) {
+    setCurrentPath(router.asPath)
+    setOpen(false)
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
