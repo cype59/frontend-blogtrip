@@ -37,22 +37,22 @@ const Article = ({ article, categories }) => {
 const ArticleContainer = styled.div`
   width: 60%;
   margin-left: 20%;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
 
   h1 {
-    font-size: 4vw;
-    font-family: "Open Sans", sans-serif;
+    font-size: 6vw;
+    font-family: "Bebas Neue", "Open Sans", sans-serif;
     text-transform: uppercase;
   }
 
   p {
-    font-family: -apple-system, BlinkMacSystemFont, "Open Sans", sans-serif;
+    font-family: "Roboto", "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     background: #fff;
-    color: #666;
+    color: #111111;
     text-align: justify;
   }
 
@@ -67,8 +67,6 @@ const ArticleContainer = styled.div`
     margin-left: 5%;
   }
 `
-
-const BannerAuthor = styled.div``
 
 export async function getStaticPaths() {
   const articles = await fetchAPI("/articles")

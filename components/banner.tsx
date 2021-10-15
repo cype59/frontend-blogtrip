@@ -81,9 +81,9 @@ const BannerItem = styled.div`
 const ArticleTitle = styled.div`
   color: white;
   position: relative;
-  font-size: 7vw;
+  font-size: 9vw;
   font-weight: 800;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
@@ -92,7 +92,7 @@ const ArticleTitle = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 9.5vw;
+    font-size: 13vw;
   }
 `
 
@@ -116,7 +116,7 @@ const BannerButton = styled(motion.button)`
   color: #000;
   background-color: #e6e6e6;
   font-size: 2vw;
-  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
 
   &:hover {
     color: #fff;
@@ -143,7 +143,7 @@ const BannerText = styled.div`
   color: white;
   font-size: 1.8vw;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-family: "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
 
   p {
     margin-top: 0;

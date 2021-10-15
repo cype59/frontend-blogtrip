@@ -7,14 +7,21 @@ import conseils from "../lotties/conseils.json"
 const CategoryBanner = (category) => {
   let animationContainer = createRef()
 
+  let data
+
+  if (category.category === "destinations") {
+    data = destinations
+  } else if (category.category === "conseils") {
+    data = conseils
+  }
+
   useEffect(() => {
     const anim = lottie.loadAnimation({
       container: animationContainer.current as Element,
       renderer: "svg",
       loop: false,
       autoplay: true,
-      animationData:
-        category.category === "destinations" ? destinations : conseils,
+      animationData: data,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid meet",
       },

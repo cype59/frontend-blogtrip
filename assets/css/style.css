@@ -48,6 +48,10 @@ body {
   -webkit-animation: sdb05 1.5s infinite;
   animation: sdb05 1.5s infinite;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    top: -150px;
+  }
 }
 @-webkit-keyframes sdb05 {
   0% {

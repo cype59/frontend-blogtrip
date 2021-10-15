@@ -31,9 +31,9 @@ const ArticleTitle = styled.div`
   color: white;
   position: absolute;
   text-align: center;
-  font-size: 7vw;
+  font-size: 9vw;
   font-weight: 800;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bebas Neue", "Open Sans", sans-serif;
   text-transform: uppercase;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   margin-top: 25vh;

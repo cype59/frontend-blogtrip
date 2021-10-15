@@ -76,11 +76,6 @@ const Category = ({ category, categories, continents }) => {
           <ArticleTitle>{category.name}</ArticleTitle>
         </BannerImage>
       </Header>
-      {/* <Articles
-        articles={category.articles}
-        title={category.name}
-        category="destinations"
-      /> */}
       <ContinentContainer>
         <ContainerRow>
           <ContinentFilter>
@@ -195,16 +190,16 @@ const BannerImage = styled.div`
 const ArticleTitle = styled.div`
   color: white;
   position: relative;
-  font-size: 7vw;
+  font-size: 9vw;
   font-weight: 800;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
   text-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
   margin-top: auto;
   margin-bottom: auto;
 
   @media (max-width: 768px) {
-    font-size: 9vw;
+    font-size: 11vw;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -251,7 +246,7 @@ const ContinentName = styled(motion.button)<IContinentNameProps>`
   padding-right: 1em;
   padding-left: 1em;
   font-size: 1.2vw;
-  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
   color: #ffffff;
 
   @media (max-width: 768px) {
@@ -276,7 +271,7 @@ const FilterButton = styled(motion.button)`
   color: #000;
   background-color: #e6e6e6;
   font-size: 1vw;
-  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
   margin-top: 10px;
 
   &:hover {

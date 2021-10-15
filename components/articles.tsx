@@ -116,7 +116,8 @@ const RowTitle = styled.div`
 `
 
 const Title = styled.h2`
-  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-size: 2rem;
+  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
 `
 
 const RowLinkStyle = `
@@ -148,7 +149,6 @@ const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* gap: ${px2vw(20)}; */
   max-width: 100%;
   @media (min-width: 1024px) {
     flex-wrap: nowrap;

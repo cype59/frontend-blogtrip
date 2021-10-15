@@ -40,16 +40,15 @@ const Nav = ({ categories }) => {
               <Name>Accueil</Name>
             </Link>
           </Item>
-          <Item>
-            <Link href="/destinations" passHref>
-              <Name>Destinations</Name>
-            </Link>
-          </Item>
-          <Item>
-            <Link href="/conseils" passHref>
-              <Name>Conseils</Name>
-            </Link>
-          </Item>
+          {categories.map((category, i) => {
+            return (
+              <Item key={category.id}>
+                <Link href={`/${category.slug}`} passHref>
+                  <Name>{`${category.name}`}</Name>
+                </Link>
+              </Item>
+            )
+          })}
         </NavbarItems>
         <SocialMedia>
           <a
@@ -155,9 +154,9 @@ const SocialMedia = styled.div`
 
 const Name = styled.a`
   color: white;
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-decoration: none;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bebas Neue", "Open Sans", sans-serif;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   position: relative;
@@ -171,7 +170,7 @@ const Name = styled.a`
     transform: translateX(-50%) scaleX(0);
     transform-origin: 50% 50%;
     width: 100%;
-    height: 1px;
+    height: 2px;
     background-color: rgba(255, 255, 255, 0.8);
     transition: transform 250ms;
   }
@@ -221,10 +220,10 @@ const StyledMenu = styled.nav<IStyledBurgerProps>`
     transform: ${(props) =>
       props.open ? "translateY(0%)" : "translateY(-100%)"};
     transition: transform 0.3s ease-in-out;
+    padding-top: 15px;
     .NameMenu {
-      font-size: 1.5rem;
-      padding: 1.5rem 0;
-      letter-spacing: 0.2rem;
+      font-size: 2rem;
+      padding: 1rem 0;
       color: #ffffff;
       transition: color 0.3s linear;
       text-align: center;

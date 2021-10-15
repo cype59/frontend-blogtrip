@@ -81,29 +81,29 @@ const CardTitle = styled.h3`
   color: white;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   font-weight: 800;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
   margin-left: 1rem;
-  font-size: 1vw;
+  font-size: 1.5vw;
   position: absolute;
   bottom: 0;
   z-index: 1;
 
   @media (max-width: 1024px) {
-    font-size: 2vw;
+    font-size: 2.3vw;
   }
 
   @media (max-width: 768px) {
     text-align: center;
     margin-left: 0;
     width: 100%;
-    font-size: 3vw;
+    font-size: 6vw;
   }
 `
 
 const CardDescription = styled.div`
   background-color: #111111;
-  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
   position: absolute;
   height: 90px;
   width: 100%;
