@@ -1,17 +1,25 @@
 import App from "next/app"
 import Head from "next/head"
 import "../assets/css/style.css"
+import "../node_modules/nprogress/nprogress.css"
 import React, { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import Script from "next/script"
+import NProgress from "nprogress"
+import { Router } from "next/router"
 
 config.autoAddCss = false
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})
+Router.events.on("routeChangeStart", () => NProgress.start())
+Router.events.on("routeChangeComplete", () => NProgress.done())
+Router.events.on("routeChangeError", () => NProgress.done())
+
+NProgress.configure({ showSpinner: false })
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
