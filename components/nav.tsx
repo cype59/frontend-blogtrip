@@ -163,7 +163,7 @@ const SocialMedia = styled.div`
 
 const Name = styled.a`
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
   font-family: "Bebas Neue", "Open Sans", sans-serif;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);

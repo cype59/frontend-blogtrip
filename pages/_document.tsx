@@ -32,13 +32,33 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Roboto&display=optional"
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          />
+          <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Bebas%20Neue&display=swap"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Bebas%20Neue&display=optional"
+            href="https://fonts.googleapis.com/css2?family=Bebas%20Neue&display=swap"
             rel="stylesheet"
           />
+          <noscript>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+              rel="stylesheet"
+            />
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Bebas%20Neue&display=swap"
+            />
+          </noscript>
         </Head>
         <body>
           <Main />
