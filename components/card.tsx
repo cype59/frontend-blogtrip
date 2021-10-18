@@ -79,18 +79,19 @@ const CardItem = styled.div`
 
 const CardTitle = styled.h3`
   color: white;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
   font-weight: 800;
   font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
   margin-left: 1rem;
-  font-size: 1.5vw;
+  font-size: 2vw;
   position: absolute;
-  bottom: 0;
+  bottom: -15px;
   z-index: 1;
 
   @media (max-width: 1024px) {
     font-size: 2.3vw;
+    bottom: 0px;
   }
 
   @media (max-width: 768px) {
