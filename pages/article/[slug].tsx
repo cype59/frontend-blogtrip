@@ -57,14 +57,24 @@ const ArticleContainer = styled.div`
   }
 
   iframe {
-    width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
+    width: 100vw;
+    max-width: 100%;
+    height: 56.25vw;
+
+    @media (min-width: 720px) {
+      height: calc(720px * 0.5628205128205128);
+    }
   }
 
   @media (max-width: 1024px) {
     width: 90%;
     margin-left: 5%;
+  }
+
+  .imgArticle {
+    width: 100%;
   }
 `
 
