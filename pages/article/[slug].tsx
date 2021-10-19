@@ -19,6 +19,8 @@ const Article = ({ article, categories }) => {
 
   const { data, loading, error } = usePalette(getStrapiURL(article.image.url))
 
+  console.log(data)
+
   return (
     <Layout categories={categories}>
       <Seo seo={seo} />
