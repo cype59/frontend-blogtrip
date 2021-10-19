@@ -17,7 +17,7 @@ const Article = ({ article, categories }) => {
     article: true,
   }
 
-  const { data, loading, error } = usePalette(getStrapiURL(article.image.url))
+  const { data, loading, error } = usePalette(article.image.url)
 
   console.log(data)
 
