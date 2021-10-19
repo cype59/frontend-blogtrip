@@ -70,6 +70,8 @@ const Container = styled.div`
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 `
 
 const CardItem = styled.div`

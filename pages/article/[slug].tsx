@@ -43,15 +43,16 @@ const ArticleContainer = styled.div`
     font-size: 6vw;
     font-family: "Bebas Neue", "Open Sans", sans-serif;
     text-transform: uppercase;
+    margin-bottom: 10px;
   }
 
-  p {
+  p,
+  li {
     font-family: "Roboto", "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
-    background: #fff;
     color: #111111;
     text-align: justify;
   }
@@ -75,6 +76,53 @@ const ArticleContainer = styled.div`
 
   .imgArticle {
     width: 100%;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  .imgArticle:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    border-radius: 5px;
+    text-align: justify;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); */
+  }
+
+  blockquote p {
+    display: inline;
+    font-family: "Roboto", "Open Sans", sans-serif;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid #111111;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+    display: flex;
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+
+  hr:after {
+    position: relative;
+    content: " ";
+    background-image: url(https://res.cloudinary.com/followmytrip/image/upload/v1634648735/logoFMTrip-icon.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    top: -26px;
   }
 `
 
