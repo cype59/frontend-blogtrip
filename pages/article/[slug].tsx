@@ -1,12 +1,13 @@
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
-import { fetchAPI } from "../../lib/api"
+import { fetchAPI, getStrapiURL } from "../../lib/api"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import BannerArticle from "./bannerArticle"
 import styled from "styled-components"
 import React from "react"
 import DisqusComments from "../../components/DisqusComments"
+import { usePalette } from "react-palette"
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -16,34 +17,53 @@ const Article = ({ article, categories }) => {
     article: true,
   }
 
+  const { data, loading, error } = usePalette(getStrapiURL(article.image.url))
+
   return (
     <Layout categories={categories}>
       <Seo seo={seo} />
       <BannerArticle image={article.image} title={article.title} />
-      <ArticleContainer>
+      <ArticleContainer
+        colorH1={data.darkVibrant}
+        colorH2={data.muted}
+        colorLi={data.darkVibrant}
+      >
         <ReactMarkdown source={article.content} escapeHtml={false} />
-        <hr />
-        <p>Ecrit par {article.author.name}</p>
+        <p style={{ marginTop: "5em" }}>Ecrit par {article.author.name}</p>
         <p>
           Mis à jour le{" "}
           <Moment format="DD/MM/YYYY">{article.updated_at}</Moment>
         </p>
+        <hr />
         <DisqusComments article={article} />
       </ArticleContainer>
     </Layout>
   )
 }
 
-const ArticleContainer = styled.div`
+interface IArticleContainerProps {
+  colorH1: string
+  colorH2: string
+  colorLi: string
+}
+
+const ArticleContainer = styled.div<IArticleContainerProps>`
   width: 60%;
   margin-left: 20%;
   font-family: "Roboto", "Open Sans", sans-serif;
 
   h1 {
-    font-size: 6vw;
+    font-size: 4.5vw;
     font-family: "Bebas Neue", "Open Sans", sans-serif;
     text-transform: uppercase;
     margin-bottom: 10px;
+    color: ${(props) => (props.colorH1 ? props.colorH1 : "#111111")};
+  }
+
+  h2 {
+    font-size: 2vw;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    color: ${(props) => (props.colorH2 ? props.colorH2 : "#333333")};
   }
 
   p,
@@ -55,6 +75,10 @@ const ArticleContainer = styled.div`
     -webkit-text-size-adjust: 100%;
     color: #111111;
     text-align: justify;
+  }
+
+  li {
+    color: ${(props) => (props.colorLi ? props.colorLi : "#111111")};
   }
 
   iframe {
@@ -85,8 +109,9 @@ const ArticleContainer = styled.div`
   }
 
   blockquote {
-    background: #f9f9f9;
-    border-left: 10px solid #ccc;
+    background: "#f9f9f9";
+    border-left: ${(props) =>
+      props.colorH1 ? `10px solid ${props.colorH1}` : "10px solid #ccc"};
     margin: 1.5em 10px;
     padding: 0.5em 10px;
     border-radius: 5px;
@@ -115,14 +140,14 @@ const ArticleContainer = styled.div`
     position: relative;
     content: " ";
     background-image: url(https://res.cloudinary.com/followmytrip/image/upload/v1634648735/logoFMTrip-icon.png);
-    background-size: 50px 50px;
+    background-size: 50px 60px;
     background-repeat: no-repeat;
     background-color: white;
-    height: 50px;
+    height: 60px;
     width: 50px;
     margin-left: auto;
     margin-right: auto;
-    top: -26px;
+    top: -31px;
   }
 `
 
