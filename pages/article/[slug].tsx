@@ -17,9 +17,15 @@ const Article = ({ article, categories }) => {
     article: true,
   }
 
-  const { data, loading, error } = usePalette(article.image.url)
+  let strapiUrl: string = ""
 
-  console.log(data)
+  if (`${process.env.NODE_ENV}` === "production") {
+    strapiUrl = article.image.url
+  } else {
+    strapiUrl = `http://localhost:1337${article.image.url}`
+  }
+
+  const { data, loading, error } = usePalette(strapiUrl)
 
   return (
     <Layout categories={categories}>
