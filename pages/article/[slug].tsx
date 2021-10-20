@@ -66,12 +66,28 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     text-transform: uppercase;
     margin-bottom: 10px;
     color: ${(props) => (props.colorH1 ? props.colorH1 : "#111111")};
+
+    @media (max-width: 1024px) {
+      font-size: 7vw;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 10vw;
+    }
   }
 
   h2 {
     font-size: 2vw;
     font-family: "Roboto", "Open Sans", sans-serif;
     color: ${(props) => (props.colorH2 ? props.colorH2 : "#333333")};
+    margin-bottom: 1em;
+    @media (max-width: 1024px) {
+      font-size: 3vw;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 4.5vw;
+    }
   }
 
   p,

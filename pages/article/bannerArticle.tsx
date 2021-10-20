@@ -40,6 +40,14 @@ const ArticleTitle = styled.div`
   transform: translateY(-50%);
   margin-left: 5%;
   width: 90%;
+
+  @media (max-width: 1024px) {
+    font-size: 10vw;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 11vw;
+  }
 `
 
 export default BannerArticle
