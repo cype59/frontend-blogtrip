@@ -72,6 +72,9 @@ const Container = styled.div`
   cursor: pointer;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  @media (max-width: 768px) {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  }
 `
 
 const CardItem = styled.div`
