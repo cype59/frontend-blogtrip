@@ -8,7 +8,8 @@ import styled from "styled-components"
 import React, { useEffect, useState } from "react"
 import DisqusComments from "../../components/DisqusComments"
 import { usePalette } from "react-palette"
-import { AnimatePresence, motion } from "framer-motion"
+import { Link } from "react-scroll"
+import { motion } from "framer-motion"
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -50,7 +51,7 @@ const Article = ({ article, categories }) => {
       return source.match(regex).map((heading) => {
         const headingText = heading.replace(/^# (.*$)/gim, "$1")
 
-        const link = "#" + headingText.toLowerCase().replace(/ /g, "-")
+        const link = headingText.toLowerCase().replace(/ /g, "-")
 
         return {
           text: headingText,
@@ -97,16 +98,26 @@ const Article = ({ article, categories }) => {
                       handleIndexHover(-1)
                     }}
                   >
-                    <ContentCircle
-                      color={data.darkVibrant}
-                      hover={buttonHover && indexHover === index}
-                    ></ContentCircle>
+                    <Link
+                      smooth={true}
+                      duration={500}
+                      to={heading.link}
+                      offset={-100}
+                    >
+                      <ContentCircle
+                        color={data.darkVibrant}
+                        hover={buttonHover && indexHover === index}
+                      ></ContentCircle>
+                    </Link>
                     <ContentCard
                       show={buttonHover && indexHover === index && show}
                       color={data.lightMuted}
                     >
                       <ContentTitle
-                        href={heading.link}
+                        smooth={true}
+                        duration={500}
+                        to={heading.link}
+                        offset={-100}
                         className="contentTitle"
                       >
                         {heading.text}
@@ -134,10 +145,11 @@ const Article = ({ article, categories }) => {
             Mis à jour le{" "}
             <Moment format="DD/MM/YYYY">{article.updated_at}</Moment>
           </p>
-          <hr />
-          <DisqusComments article={article} />
         </ArticleContainer>
       </ContainerGrid>
+      <CommentsContainer color={data.darkVibrant}>
+        <DisqusComments article={article} />
+      </CommentsContainer>
     </Layout>
   )
 }
@@ -145,6 +157,25 @@ const Article = ({ article, categories }) => {
 const ContainerGrid = styled.div`
   display: flex;
   flex-direction: row;
+`
+
+const CommentsContainer = styled.div<IVerticalLineProps>`
+  padding-left: 20%;
+  padding-right: 20%;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  background-color: #111111;
+  position: absolute;
+  height: 100%;
+  width: 60%;
+  border-top: ${(props) => `20px solid ${props.color}`};
+
+  margin-top: 5%;
+
+  @media (max-width: 1024px) {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+  }
 `
 
 const GridColumn = styled.div`
@@ -173,7 +204,7 @@ const ContentCircle = styled.span<IContentCircleProps>`
   cursor: pointer;
 `
 
-const ContentTitle = styled.a`
+const ContentTitle = styled(Link)`
   color: #111111;
   font-size: 1rem;
   font-weight: 700;
@@ -341,20 +372,20 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     display: flex;
     margin-top: 3em;
     margin-bottom: 3em;
-  }
 
-  hr:after {
-    position: relative;
-    content: " ";
-    background-image: url(https://res.cloudinary.com/followmytrip/image/upload/v1634648735/logoFMTrip-icon.png);
-    background-size: 50px 60px;
-    background-repeat: no-repeat;
-    background-color: white;
-    height: 60px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    top: -31px;
+    &::after {
+      position: relative;
+      content: " ";
+      background-image: url(https://res.cloudinary.com/followmytrip/image/upload/v1634648735/logoFMTrip-icon.png);
+      background-size: 50px 60px;
+      background-repeat: no-repeat;
+      background-color: white;
+      height: 60px;
+      width: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      top: -31px;
+    }
   }
 `
 
