@@ -47,7 +47,6 @@ const Articles = ({ articles, title, category, query }) => {
       >
         <RowTitle>
           <Title>{title}</Title>
-          {}
           <Link href={href} passHref>
             <RowLinkMobile>Voir tout</RowLinkMobile>
           </Link>
