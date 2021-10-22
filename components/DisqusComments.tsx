@@ -20,12 +20,9 @@ export default DisqusComments
 
 const DisqusContainer = styled.div`
   margin: 50px 0;
-  padding-left: 20%;
-  padding-right: 20%;
   margin-right: 20%;
   margin-left: 20%;
   padding: 0 10%;
-  padding-bottom: 10%;
   background-color: white;
   color: #111111;
   border-radius: 10px;
