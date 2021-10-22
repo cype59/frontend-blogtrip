@@ -1,9 +1,9 @@
 import React from "react"
 import Banner from "../components/banner"
-import Nav from "../components/nav"
 import Articles from "../components/articles"
 import Seo from "../components/seo"
 import { fetchAPI } from "../lib/api"
+import Layout from "../components/layout"
 
 const Home = ({ articles, categories, homepage }) => {
   const lastArticles = articles
@@ -17,8 +17,7 @@ const Home = ({ articles, categories, homepage }) => {
     articles.filter((article) => article.continent?.slug === "amerique-du-sud")
 
   return (
-    <div>
-      <Nav categories={categories} />
+    <Layout categories={categories}>
       <Seo seo={homepage.seo} />
       <Banner lastArticle={articles[articles.length - 1]} />
       <Articles
@@ -39,7 +38,7 @@ const Home = ({ articles, categories, homepage }) => {
         category="destinations"
         query="amerique-du-sud"
       />
-    </div>
+    </Layout>
   )
 }
 

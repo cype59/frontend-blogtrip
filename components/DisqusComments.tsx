@@ -10,7 +10,7 @@ const DisqusComments = ({ article }) => {
   }
   return (
     <DisqusContainer>
-      <DisqusTitle>Commentaires</DisqusTitle>
+      <DisqusTitle>Commentaires de cet article</DisqusTitle>
       <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </DisqusContainer>
   )
@@ -20,22 +20,32 @@ export default DisqusComments
 
 const DisqusContainer = styled.div`
   margin: 50px 0;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-right: 20%;
+  margin-left: 20%;
   padding: 0 10%;
   padding-bottom: 10%;
   background-color: white;
   color: #111111;
   border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `
 
 const DisqusTitle = styled.h1`
   color: #111111;
   font-family: "Bebas Neue", "Open Sans", sans-serif;
   text-transform: uppercase;
-  font-size: 3vw;
+  font-size: 4vw;
   text-align: center;
-  padding: 5%;
+  padding-top: 5%;
+  padding-bottom: 0;
 
   @media (max-width: 1024px) {
-    font-size: 6vw;
+    font-size: 8vw;
   }
 `

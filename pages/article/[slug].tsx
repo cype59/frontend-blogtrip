@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI, getStrapiURL } from "../../lib/api"
-import Layout from "../../components/layout"
+import Nav from "../../components/nav"
 import Seo from "../../components/seo"
 import BannerArticle from "./bannerArticle"
 import styled from "styled-components"
@@ -10,6 +10,7 @@ import DisqusComments from "../../components/DisqusComments"
 import { usePalette } from "react-palette"
 import { Link } from "react-scroll"
 import { motion } from "framer-motion"
+import FooterContent from "../../components/footerContent"
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -78,7 +79,8 @@ const Article = ({ article, categories }) => {
   }
 
   return (
-    <Layout categories={categories}>
+    <div>
+      <Nav categories={categories} />
       <Seo seo={seo} />
       <BannerArticle image={article.image} title={article.title} />
       <ContainerGrid>
@@ -140,17 +142,21 @@ const Article = ({ article, categories }) => {
             escapeHtml={false}
             renderers={{ heading: HeadingRenderer }}
           />
-          <p style={{ marginTop: "5em" }}>Ecrit par {article.author.name}</p>
-          <p>
+          <hr />
+          <p style={{ marginTop: "2em" }}>
+            Ecrit par <strong>{article.author.name}</strong>
+          </p>
+          <i>
             Mis à jour le{" "}
             <Moment format="DD/MM/YYYY">{article.updated_at}</Moment>
-          </p>
+          </i>
         </ArticleContainer>
       </ContainerGrid>
       <CommentsContainer color={data.darkVibrant}>
         <DisqusComments article={article} />
+        <FooterContent />
       </CommentsContainer>
-    </Layout>
+    </div>
   )
 }
 
@@ -160,22 +166,14 @@ const ContainerGrid = styled.div`
 `
 
 const CommentsContainer = styled.div<IVerticalLineProps>`
-  padding-left: 20%;
-  padding-right: 20%;
   font-family: "Roboto", "Open Sans", sans-serif;
   background-color: #111111;
   position: absolute;
-  height: 100%;
-  width: 60%;
+  height: auto;
+  width: 100%;
   border-top: ${(props) => `20px solid ${props.color}`};
 
   margin-top: 5%;
-
-  @media (max-width: 1024px) {
-    padding-left: 5%;
-    padding-right: 5%;
-    width: 90%;
-  }
 `
 
 const GridColumn = styled.div`
@@ -304,7 +302,8 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
   }
 
   p,
-  li {
+  li,
+  i {
     font-family: "Roboto", "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -361,6 +360,11 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
   blockquote p {
     display: inline;
     font-family: "Roboto", "Open Sans", sans-serif;
+  }
+
+  strong {
+    font-weight: 900;
+    font-family: "Roboto Bold", "Open Sans", sans-serif;
   }
 
   hr {
