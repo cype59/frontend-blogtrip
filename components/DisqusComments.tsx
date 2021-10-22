@@ -23,6 +23,7 @@ const DisqusContainer = styled.div`
   margin-right: 20%;
   margin-left: 20%;
   padding: 0 10%;
+  padding-bottom: 3%;
   background-color: white;
   color: #111111;
   border-radius: 10px;
