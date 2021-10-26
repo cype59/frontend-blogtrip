@@ -158,6 +158,10 @@ const Email = styled.input`
   height: 50px;
   border: none;
   font-size: 1.1rem;
+
+  @media (max-width: 768px) {
+    height: 30px;
+  }
 `
 const Submit = styled(motion.input)`
   margin: 10%;
@@ -192,6 +196,7 @@ const Submit = styled(motion.input)`
     padding-bottom: 0.8rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    height: 40px;
   }
 `
 
