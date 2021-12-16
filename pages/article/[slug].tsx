@@ -391,6 +391,65 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
       top: -31px;
     }
   }
+
+  table {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  thead {
+    background-color: ${(props) =>
+      props.colorH1 ? `${props.colorH1}` : "#111111"};
+    color: #fff;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+
+  td,
+  th {
+    display: table-cell;
+    padding: 1em;
+  }
+
+  tbody tr:hover {
+    background-color: #f7f7f7;
+  }
+
+  td:before {
+    display: none;
+  }
+
+  tbody tr {
+    border-top: 1px solid #dddddd;
+  }
+
+  tbody tr:last-child {
+    border-bottom: ${(props) =>
+      props.colorH1 ? `10px solid ${props.colorH1}` : "10px solid #111111"};
+  }
+
+  @media (max-width: 768px) {
+    th,
+    td {
+      display: block;
+    }
+
+    td:first-child {
+      margin-top: 0.5em;
+    }
+
+    td:last-child {
+      margin-bottom: 0.5em;
+    }
+  }
 `
 
 export async function getStaticPaths() {
