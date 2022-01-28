@@ -3,9 +3,9 @@ import CategoryBanner from "../components/categoryBanner"
 import Layout from "../components/layout"
 import { fetchAPI } from "../lib/api"
 import { ArticleTitle, BannerImage, Header } from "./[categoryslug]"
-import Image from "next/image"
-import baptCyril from "../images/baptCyril.jpg"
-import baptCyrilv0 from "../images/baptCyrilv0.jpg"
+// import Image from "next/image"
+// import baptCyril from "../images/baptCyril.jpg"
+// import baptCyrilv0 from "../images/baptCyrilv0.jpg"
 
 const Apropos = ({ categories }) => {
   return (
@@ -28,14 +28,14 @@ const Apropos = ({ categories }) => {
             que l’on a pris des chemins un peu différents. Lui a fait une école
             de commerce à Lille et moi une école d’Ingénieur à Paris.
           </p>
-          <ImageContainer>
+          {/* <ImageContainer>
             <ImageLeft>
               <Image src={baptCyrilv0} alt="baptiste et Moi (Cyril)" />
             </ImageLeft>
             <ImageRight>
               <Image src={baptCyril} alt="baptiste et Moi (Cyril)" />
             </ImageRight>
-          </ImageContainer>
+          </ImageContainer> */}
           <p>
             Au retour de son semestre à l’étranger en Colombie, l’envie de
             partir voyager et de <strong>faire un tour du monde</strong> est née
