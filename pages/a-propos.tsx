@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import { fetchAPI } from "../lib/api"
 import { ArticleTitle, BannerImage, Header } from "./[categoryslug]"
 import Image from "next/image"
-import baptCyril from "../images/baptCyril.jpg"
+import baptCyrilv1 from "../images/baptCyrilv1.jpg"
 import baptCyrilv0 from "../images/baptCyrilv0.jpg"
 
 const Apropos = ({ categories }) => {
@@ -33,7 +33,7 @@ const Apropos = ({ categories }) => {
               <Image src={baptCyrilv0} alt="baptiste et Moi (Cyril) enfants" />
             </ImageLeft>
             <ImageRight>
-              <Image src={baptCyril} alt="baptiste et Moi (Cyril)" />
+              <Image src={baptCyrilv1} alt="baptiste et Moi (Cyril)" />
             </ImageRight>
           </ImageContainer>
           <p>
