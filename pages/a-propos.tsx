@@ -3,9 +3,9 @@ import CategoryBanner from "../components/categoryBanner"
 import Layout from "../components/layout"
 import { fetchAPI } from "../lib/api"
 import { ArticleTitle, BannerImage, Header } from "./[categoryslug]"
-// import Image from "next/image"
-// import baptCyril from "../images/baptCyril.jpg"
-// import baptCyrilv0 from "../images/baptCyrilv0.jpg"
+import Image from "next/image"
+import baptCyril from "../images/baptCyril.jpg"
+import baptCyrilv0 from "../images/baptCyrilv0.jpg"
 
 const Apropos = ({ categories }) => {
   return (
