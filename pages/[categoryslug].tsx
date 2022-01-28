@@ -161,11 +161,11 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   }
 }
-interface IHeaderProps {
+export interface IHeaderProps {
   bgColor: string
 }
 
-const Header = styled.div<IHeaderProps>`
+export const Header = styled.div<IHeaderProps>`
   position: relative;
   top: 0;
   left: 0;
@@ -174,7 +174,7 @@ const Header = styled.div<IHeaderProps>`
   background-color: ${(props) => props.bgColor};
 `
 
-const BannerImage = styled.div`
+export const BannerImage = styled.div`
   position: relative;
   display: flex;
   height: 100%;
@@ -187,7 +187,7 @@ const BannerImage = styled.div`
   }
 `
 
-const ArticleTitle = styled.div`
+export const ArticleTitle = styled.div`
   color: white;
   position: relative;
   font-size: 9vw;

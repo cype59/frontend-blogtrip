@@ -3,6 +3,7 @@ import lottie from "lottie-web"
 import styled from "styled-components"
 import destinations from "../lotties/destinations.json"
 import conseils from "../lotties/conseils.json"
+import aPropos from "../lotties/about.json"
 
 const CategoryBanner = (category) => {
   let animationContainer = createRef()
@@ -13,6 +14,8 @@ const CategoryBanner = (category) => {
     data = destinations
   } else if (category.category === "conseils") {
     data = conseils
+  } else if (category.category === "aPropos") {
+    data = aPropos
   }
 
   useEffect(() => {

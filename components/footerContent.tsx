@@ -10,6 +10,7 @@ import {
   faYoutube,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons"
+import Link from "next/link"
 
 interface IContext {
   location: {
@@ -64,7 +65,11 @@ const FooterContent = () => {
       </Grid>
       <Copyright>
         <FooterLink>
-          <li>A propos</li>
+          <li>
+            <Link as={`/a-propos`} href={`/a-propos`} passHref>
+              A propos
+            </Link>
+          </li>
           <li>Mentions légales</li>
           <li>Contact</li>
         </FooterLink>
@@ -229,4 +234,8 @@ const FooterLink = styled.ul`
   list-style: none;
   margin: 2%;
   padding: 0;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `
