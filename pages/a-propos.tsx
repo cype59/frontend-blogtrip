@@ -30,11 +30,11 @@ const Apropos = ({ categories }) => {
           </p>
           <ImageContainer>
             <ImageLeft>
-              <Image src={baptCyrilv0} alt="baptiste et Moi (Cyril)" />
+              <Image src={baptCyrilv0} alt="baptiste et Moi (Cyril) enfants" />
             </ImageLeft>
-            {/* <ImageRight>
+            <ImageRight>
               <Image src={baptCyril} alt="baptiste et Moi (Cyril)" />
-            </ImageRight> */}
+            </ImageRight>
           </ImageContainer>
           <p>
             Au retour de son semestre à l’étranger en Colombie, l’envie de
