@@ -145,7 +145,7 @@ export async function getStaticPaths() {
         categoryslug: category.slug,
       },
     })),
-    fallback: false,
+    fallback: "blocking",
   }
 }
 

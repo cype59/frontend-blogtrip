@@ -160,6 +160,29 @@ const Article = ({ article, categories }) => {
   )
 }
 
+export async function getStaticPaths() {
+  const articles = await fetchAPI("/articles")
+
+  return {
+    paths: articles.map((article) => ({
+      params: {
+        slug: article.slug,
+      },
+    })),
+    fallback: "blocking",
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const articles = await fetchAPI(`/articles?slug=${params.slug}`)
+  const categories = await fetchAPI("/categories")
+
+  return {
+    props: { article: articles[0], categories },
+    revalidate: 10, // In seconds
+  }
+}
+
 const ContainerGrid = styled.div`
   display: flex;
   flex-direction: row;
@@ -451,28 +474,4 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     }
   }
 `
-
-export async function getStaticPaths() {
-  const articles = await fetchAPI("/articles")
-
-  return {
-    paths: articles.map((article) => ({
-      params: {
-        slug: article.slug,
-      },
-    })),
-    fallback: false,
-  }
-}
-
-export async function getStaticProps({ params }) {
-  const articles = await fetchAPI(`/articles?slug=${params.slug}`)
-  const categories = await fetchAPI("/categories")
-
-  return {
-    props: { article: articles[0], categories },
-    revalidate: 1,
-  }
-}
-
 export default Article
