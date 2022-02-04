@@ -6,14 +6,19 @@ import { fetchAPI } from "../lib/api"
 import Layout from "../components/layout"
 
 const Home = ({ articles, categories, homepage }) => {
-  const last4Articles = articles
-    .slice()
-    .sort((a, b) => b.published_at - a.published_at)
-
-  console.log(last4Articles)
+  function compareNombres(a, b) {
+    return b.published_at > a.published_at
+      ? -1
+      : b.published_at < a.published_at
+      ? 1
+      : 0
+  }
+  const last4Articles = articles.slice().sort(compareNombres)
   const lastArticles = last4Articles
     .slice(last4Articles.length - 4, last4Articles.length)
     .reverse()
+
+  console.log(lastArticles)
   const AmSArticles =
     articles &&
     articles.filter((article) => article.continent?.slug === "amerique-du-sud")
@@ -24,7 +29,7 @@ const Home = ({ articles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
-      <Banner lastArticle={articles[articles.length - 1]} />
+      <Banner lastArticle={last4Articles[last4Articles.length - 1]} />
       <Articles
         articles={lastArticles}
         title="Derniers articles"
