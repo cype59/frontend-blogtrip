@@ -179,7 +179,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { article: articles[0], categories },
-    revalidate: 10, // In seconds
+    revalidate: 1, // In seconds
   }
 }
 
