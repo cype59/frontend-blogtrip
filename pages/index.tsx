@@ -6,16 +6,19 @@ import { fetchAPI } from "../lib/api"
 import Layout from "../components/layout"
 
 const Home = ({ articles, categories, homepage }) => {
-  const lastArticles = articles
-    .slice(articles.length - 4, articles.length)
+  const last4Articles = articles
+    .slice()
+    .sort((a, b) => b.published_at - a.published_at)
+  const lastArticles = last4Articles
+    .slice(last4Articles.length - 4, last4Articles.length)
     .reverse()
-  const ASEstArticles =
-    articles &&
-    articles.filter((article) => article.continent?.slug === "asie-du-sud-est")
   const AmSArticles =
     articles &&
     articles.filter((article) => article.continent?.slug === "amerique-du-sud")
 
+  const conseilsArticles =
+    articles &&
+    articles.filter((article) => article.category?.slug === "conseils")
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
@@ -27,10 +30,10 @@ const Home = ({ articles, categories, homepage }) => {
         query=""
       />
       <Articles
-        articles={ASEstArticles}
-        title="Asie du Sud-Est"
-        category="destinations"
-        query="asie-du-sud-est"
+        articles={conseilsArticles}
+        title="Conseils et Astuces"
+        category="conseils"
+        query=""
       />
       <Articles
         articles={AmSArticles}
