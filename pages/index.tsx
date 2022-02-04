@@ -9,6 +9,8 @@ const Home = ({ articles, categories, homepage }) => {
   const last4Articles = articles
     .slice()
     .sort((a, b) => b.published_at - a.published_at)
+
+  console.log(last4Articles)
   const lastArticles = last4Articles
     .slice(last4Articles.length - 4, last4Articles.length)
     .reverse()
