@@ -18,7 +18,6 @@ const Home = ({ articles, categories, homepage }) => {
     .slice(last4Articles.length - 4, last4Articles.length)
     .reverse()
 
-  console.log(lastArticles)
   const AmSArticles =
     articles &&
     articles.filter((article) => article.continent?.slug === "amerique-du-sud")
