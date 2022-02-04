@@ -336,8 +336,17 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     text-align: justify;
   }
 
-  li {
+  ul {
+    list-style: none;
+  }
+
+  li::before {
+    content: "•";
     color: ${(props) => (props.colorLi ? props.colorLi : "#111111")};
+    display: inline-block;
+    width: 0.8em;
+    font-size: 2em;
+    vertical-align: middle;
   }
 
   iframe {
@@ -416,8 +425,7 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
   }
 
   table {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
     margin-top: 5%;
     margin-bottom: 5%;
     border-collapse: collapse;
