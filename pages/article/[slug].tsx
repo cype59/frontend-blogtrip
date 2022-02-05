@@ -367,6 +367,15 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     margin-right: 5%;
   }
 
+  .imgWrapper {
+    transition: all 0.2s ease;
+    vertical-align: middle;
+    width: 100%;
+    display: inline-block; /* change the default display type to inline-block */
+    overflow: hidden; /* hide the overflow */
+    border-radius: 5px;
+  }
+
   .imgArticle {
     width: 100%;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
@@ -375,6 +384,8 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
   }
   .imgArticle:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+    transition: all 1s ease;
   }
 
   blockquote {

@@ -102,16 +102,29 @@ export async function getStaticProps() {
 const ImageContainer = styled.div`
   margin-top: 1em;
   margin-bottom: 1em;
+
+  img:hover {
+    transform: scale(1.1);
+    transition: all 1s ease;
+  }
 `
 const ImageLeft = styled.div`
   width: 49%;
   float: left;
   margin-bottom: 2.5em;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  overflow: hidden; /* hide the overflow */
+  border-radius: 5px;
 `
 const ImageRight = styled.div`
   width: 49%;
   float: right;
   margin-bottom: 2.5em;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  overflow: hidden; /* hide the overflow */
+  border-radius: 5px;
 `
 const Container = styled.div`
   width: 60%;
