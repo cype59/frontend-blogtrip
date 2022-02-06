@@ -11,6 +11,9 @@ import { usePalette } from "react-palette"
 import { Link } from "react-scroll"
 import { motion } from "framer-motion"
 import FooterContent from "../../components/footerContent"
+import illuToucan from "../../images/illuToucan.png"
+import illuParesseux from "../../images/illuParesseux.png"
+import Image from "next/image"
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -84,6 +87,9 @@ const Article = ({ article, categories }) => {
       <Seo seo={seo} />
       <BannerArticle image={article.image} title={article.title} />
       <ContainerGrid>
+        <IlluGauche show={show}>
+          <Image src={illuParesseux} alt="illustration paresseux" />
+        </IlluGauche>
         <GridColumn>
           {headings.length > 0 ? (
             <VerticalList color={data.darkVibrant} show={show}>
@@ -151,6 +157,9 @@ const Article = ({ article, categories }) => {
             <Moment format="DD/MM/YYYY">{article.updated_at}</Moment>
           </i>
         </ArticleContainer>
+        <IlluDroite show={show}>
+          <Image src={illuToucan} alt="illustration toucan" />
+        </IlluDroite>
       </ContainerGrid>
       <CommentsContainer color={data.darkVibrant}>
         <DisqusComments article={article} />
@@ -201,6 +210,37 @@ const CommentsContainer = styled.div<IVerticalLineProps>`
 
 const GridColumn = styled.div`
   width: 20%;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`
+
+interface IIlluContainerProps {
+  show: boolean
+}
+
+const IlluDroite = styled.div<IIlluContainerProps>`
+  width: 15%;
+  position: fixed;
+  right: 0;
+  bottom: -5px;
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(30%)")};
+  opacity: ${(props) => (props.show ? "1" : "0")};
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`
+
+const IlluGauche = styled.div<IIlluContainerProps>`
+  width: 15%;
+  position: fixed;
+  left: 0;
+  bottom: -5px;
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(-30%)")};
+  opacity: ${(props) => (props.show ? "1" : "0")};
+  transition: all 0.3s ease-in-out;
   @media (max-width: 1024px) {
     display: none;
   }
@@ -263,6 +303,7 @@ const VerticalLine = styled.div<IVerticalLineProps>`
   height: 100%;
   width: 10px;
   background-color: ${(props) => (props.color ? props.color : "#111111")};
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 `
 
 const VerticalList = styled.ul<IVerticalLineProps>`
@@ -274,7 +315,7 @@ const VerticalList = styled.ul<IVerticalLineProps>`
   position: fixed;
   transform: ${(props) => (props.show ? "translateX(0)" : "translateX(-30%)")};
   opacity: ${(props) => (props.show ? "1" : "0")};
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
   li {
     position: relative;
@@ -291,7 +332,7 @@ interface IArticleContainerProps {
 
 const ArticleContainer = styled.div<IArticleContainerProps>`
   width: 60%;
-  margin-right: 20%;
+  margin-right: 5%;
   font-family: "Roboto", "Open Sans", sans-serif;
 
   h1 {
