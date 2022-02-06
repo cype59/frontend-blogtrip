@@ -32,7 +32,7 @@ const FooterContent = () => {
           </WorldMap>
           <LocationName>{location.name}</LocationName>
         </Col>
-        <Col>
+        {/* <Col>
           <TitleSection>Newsletter</TitleSection>
           <Form>
             <Email type="email" placeholder="Ton email" />
@@ -43,7 +43,7 @@ const FooterContent = () => {
               whileHover={{ scale: 1.1 }}
             />
           </Form>
-        </Col>
+        </Col> */}
         <Col>
           <TitleSection>Suis moi sur les réseaux</TitleSection>
           <SocialMedia>
@@ -54,9 +54,9 @@ const FooterContent = () => {
             >
               <FontAwesomeIcon icon={faInstagram} size="3x" />
             </a>
-            <a href="/" target="_blank" rel="noopener noreferrer">
+            {/* <a href="/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTiktok} size="3x" />
-            </a>
+            </a> */}
             <a href="/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faYoutube} size="3x" />
             </a>
@@ -74,7 +74,7 @@ const FooterContent = () => {
           <li>Contact</li>
         </FooterLink>
         <p>
-          ©2021 . fait avec ❤️ par <strong>Cyril</strong>
+          ©2022 . fait avec ❤️ par <strong>Cyril</strong>
         </p>
       </Copyright>
     </div>
