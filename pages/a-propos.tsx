@@ -1,22 +1,20 @@
 import styled from "styled-components"
-import CategoryBanner from "../components/categoryBanner"
 import Layout from "../components/layout"
 import { fetchAPI } from "../lib/api"
-import { ArticleTitle, BannerImage, Header } from "./[categoryslug]"
 import Image from "next/image"
 import baptCyrilv1 from "../images/baptCyrilv1.jpg"
 import baptCyrilv0 from "../images/baptCyrilv0.jpg"
+import HeaderCategory from "../components/headerCategory"
 
 const Apropos = ({ categories }) => {
   return (
     <Layout categories={categories}>
       <div>
-        <Header bgColor={"#DFD5A5"}>
-          <BannerImage>
-            <CategoryBanner category={"aPropos"} />
-            <ArticleTitle>A propos</ArticleTitle>
-          </BannerImage>
-        </Header>
+        <HeaderCategory
+          bgColor={"#DFD5A5"}
+          category={"aPropos"}
+          title={"A propos"}
+        />
         <Container>
           <h1>Le commencement...</h1>
           <p>

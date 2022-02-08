@@ -4,6 +4,7 @@ import styled from "styled-components"
 import destinations from "../lotties/destinations.json"
 import conseils from "../lotties/conseils.json"
 import aPropos from "../lotties/about.json"
+import contact from "../lotties/contact.json"
 
 const CategoryBanner = (category) => {
   let animationContainer = createRef()
@@ -16,6 +17,8 @@ const CategoryBanner = (category) => {
     data = conseils
   } else if (category.category === "aPropos") {
     data = aPropos
+  } else if (category.category === "contact") {
+    data = contact
   }
 
   useEffect(() => {

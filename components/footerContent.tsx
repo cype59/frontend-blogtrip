@@ -19,7 +19,7 @@ interface IContext {
   }
 }
 
-const FooterContent = () => {
+const FooterContent = ({ categories }) => {
   const { location } = useContext(GlobalContext) as IContext
 
   return (
@@ -71,7 +71,11 @@ const FooterContent = () => {
             </Link>
           </li>
           <li>Mentions légales</li>
-          <li>Contact</li>
+          <li>
+            <Link as={`/contact`} href={`/contact`} passHref>
+              Contact
+            </Link>
+          </li>
         </FooterLink>
         <p>
           ©2022 . fait avec ❤️ par <strong>Cyril</strong>

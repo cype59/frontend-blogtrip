@@ -2,10 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import FooterContent from "./footerContent"
 
-const Footer = () => {
+const Footer = ({ categories }) => {
   return (
     <FooterComponent>
-      <FooterContent />
+      <FooterContent categories={categories} />
     </FooterComponent>
   )
 }

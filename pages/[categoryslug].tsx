@@ -5,11 +5,11 @@ import styled from "styled-components"
 import React from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import CategoryBanner from "../components/categoryBanner"
 import { AnimatePresence, motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes } from "@fortawesome/free-solid-svg-icons"
 import ArticlesFilter from "../components/articlesFilter"
+import HeaderCategory from "../components/headerCategory"
 
 interface ContinentColor {
   category: string
@@ -70,12 +70,11 @@ const Category = ({ category, categories, continents }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={seo} />
-      <Header bgColor={bgColor}>
-        <BannerImage>
-          <CategoryBanner category={category.slug} />
-          <ArticleTitle>{category.name}</ArticleTitle>
-        </BannerImage>
-      </Header>
+      <HeaderCategory
+        bgColor={bgColor}
+        category={category.slug}
+        title={category.name}
+      />
       <ContinentContainer>
         <ContainerRow>
           <ContinentFilter>
@@ -161,49 +160,6 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   }
 }
-export interface IHeaderProps {
-  bgColor: string
-}
-
-export const Header = styled.div<IHeaderProps>`
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50vh;
-  background-color: ${(props) => props.bgColor};
-`
-
-export const BannerImage = styled.div`
-  position: relative;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-left: -10%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    margin-left: 0;
-  }
-`
-
-export const ArticleTitle = styled.div`
-  color: white;
-  position: relative;
-  font-size: 9vw;
-  font-weight: 800;
-  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
-  text-transform: uppercase;
-  text-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
-  margin-top: auto;
-  margin-bottom: auto;
-
-  @media (max-width: 768px) {
-    font-size: 11vw;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-`
 
 const ContinentContainer = styled.div`
   display: flex;
