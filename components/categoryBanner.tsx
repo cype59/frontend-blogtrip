@@ -39,10 +39,7 @@ const CategoryBanner = (category) => {
   })
 
   return (
-    <div
-      ref={animationContainer as RefObject<HTMLDivElement>}
-      style={{ width: "20vw", height: "20vw" }}
-    />
+    <LottieContainer ref={animationContainer as RefObject<HTMLDivElement>} />
   )
 }
 
@@ -58,4 +55,13 @@ const DisplayLoader = styled.div<IDisplayLoaderProps>`
   justify-content: center;
   height: 100%;
   background-color: ${(props) => props.bgColor};
+`
+const LottieContainer = styled.div`
+  width: 20vw;
+  height: 20vw;
+
+  @media (max-width: 768px) {
+    width: 30vw;
+    height: 30vw;
+  }
 `
