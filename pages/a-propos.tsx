@@ -163,7 +163,7 @@ const Container = styled.div`
   }
   p {
     font-family: "Roboto", "Open Sans", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;

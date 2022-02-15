@@ -1,10 +1,5 @@
 import styled from "styled-components"
 import CategoryBanner from "../components/categoryBanner"
-import Layout from "../components/layout"
-import { fetchAPI } from "../lib/api"
-import Image from "next/image"
-import baptCyrilv1 from "../images/baptCyrilv1.jpg"
-import baptCyrilv0 from "../images/baptCyrilv0.jpg"
 
 type HeaderCategoryProps = {
   bgColor: string

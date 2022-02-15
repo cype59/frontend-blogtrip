@@ -70,7 +70,12 @@ const FooterContent = ({ categories }) => {
               A propos
             </Link>
           </li>
-          <li>Mentions légales</li>
+          <li>
+            {" "}
+            <Link as={`/mentions-legales`} href={`/mentions-legales`} passHref>
+              Mentions Légales
+            </Link>
+          </li>
           <li>
             <Link as={`/contact`} href={`/contact`} passHref>
               Contact
