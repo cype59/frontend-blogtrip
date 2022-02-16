@@ -13,22 +13,32 @@ const Home = ({ articles, categories, homepage }) => {
       ? 1
       : 0
   }
-  const last4Articles = articles.slice().sort(compareNombres)
-  const lastArticles = last4Articles
-    .slice(last4Articles.length - 4, last4Articles.length)
+  const articlesInOrder = articles.slice().sort(compareNombres)
+  const lastArticles = articlesInOrder
+    .slice(articlesInOrder.length - 4, articlesInOrder.length)
     .reverse()
 
-  const AmSArticles =
-    articles &&
-    articles.filter((article) => article.continent?.slug === "amerique-du-sud")
+  let AmSArticles =
+    articlesInOrder &&
+    articlesInOrder.filter(
+      (article) => article.continent?.slug === "amerique-du-sud"
+    )
+  AmSArticles = AmSArticles.slice(
+    AmSArticles.length - 4,
+    AmSArticles.length
+  ).reverse()
 
-  const conseilsArticles =
-    articles &&
-    articles.filter((article) => article.category?.slug === "conseils")
+  let conseilsArticles =
+    articlesInOrder &&
+    articlesInOrder.filter((article) => article.category?.slug === "conseils")
+
+  conseilsArticles = conseilsArticles
+    .slice(conseilsArticles.length - 4, conseilsArticles.length)
+    .reverse()
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
-      <Banner lastArticle={last4Articles[last4Articles.length - 1]} />
+      <Banner lastArticle={articlesInOrder[articlesInOrder.length - 1]} />
       <Articles
         articles={lastArticles}
         title="Derniers articles"

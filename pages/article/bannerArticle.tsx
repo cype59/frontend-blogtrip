@@ -35,7 +35,7 @@ const ArticleTitle = styled.div`
   font-weight: 800;
   font-family: "Bebas Neue", "Open Sans", sans-serif;
   text-transform: uppercase;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   margin-top: 25vh;
   transform: translateY(-50%);
   margin-left: 5%;

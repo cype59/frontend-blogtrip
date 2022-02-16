@@ -85,7 +85,7 @@ const ArticleTitle = styled.div`
   font-weight: 800;
   font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 1024px) {
     font-size: 9vw;
@@ -142,7 +142,7 @@ const BannerText = styled.div`
   vertical-align: middle;
   color: white;
   font-size: 1.8vw;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 20px rgb(0 0 0);
   font-family: "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
 
   p {

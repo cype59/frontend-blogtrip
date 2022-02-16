@@ -53,6 +53,14 @@ const Category = ({ category, categories, continents }) => {
   let bgColor: string = "#f0c30f"
   let articles
 
+  function compareNombres(a, b) {
+    return b.published_at > a.published_at
+      ? -1
+      : b.published_at < a.published_at
+      ? 1
+      : 0
+  }
+
   if (query.continent) {
     bgColor = ContinentsColor.find(
       (item) => query.continent === item.category
@@ -66,6 +74,8 @@ const Category = ({ category, categories, continents }) => {
     ).color
     articles = categories.find((item) => category.slug === item.slug).articles
   }
+
+  articles = articles.slice().sort(compareNombres).reverse()
 
   return (
     <Layout categories={categories}>
@@ -130,7 +140,7 @@ const Category = ({ category, categories, continents }) => {
           </AnimatePresence>
         </ContainerRow>
       </ContinentContainer>
-      <ArticlesFilter articles={articles.reverse()} />
+      <ArticlesFilter articles={articles} />
     </Layout>
   )
 }
