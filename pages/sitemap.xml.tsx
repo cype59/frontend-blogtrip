@@ -1,4 +1,3 @@
-import fs from "fs"
 import { fetchAPI } from "../lib/api"
 
 const Sitemap = () => {}
@@ -9,43 +8,17 @@ export const getServerSideProps = async ({ res }) => {
     production: process.env.NEXT_PUBLIC_WEBSITE_URL,
   }[process.env.NODE_ENV]
 
-  const staticPages = fs
-    .readdirSync(
-      {
-        development: "pages",
-        production: "./.next/server/pages",
-      }[process.env.NODE_ENV]
-    )
-    .filter((staticPage) => {
-      return ![
-        "article",
-        "_app.tsx",
-        "_document.tsx",
-        "[categoryslug].tsx",
-        "sitemap.xml.tsx",
-      ].includes(staticPage)
-    })
-    .map((staticPagePath) => {
-      return `${baseUrl}/${staticPagePath}`
-    })
-
   const dynamiqueArticles = await fetchAPI("/articles")
   const dynamiqueCategories = await fetchAPI("/categories")
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${staticPages
-        .map((url) => {
-          return `
-            <url>
-              <loc>${url}</loc>
-              <lastmod>${new Date().toISOString()}</lastmod>
-              <changefreq>monthly</changefreq>
-              <priority>1.0</priority>
-            </url>
-          `
-        })
-        .join("")}
+      <url>
+        <loc>${baseUrl}/</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+      </url>
       ${dynamiqueArticles
         .map(({ slug, updated_at }) => {
           return `
