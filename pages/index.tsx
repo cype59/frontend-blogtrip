@@ -39,12 +39,12 @@ const Home = ({ articles, categories, homepage }) => {
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
       <Banner lastArticle={articlesInOrder[articlesInOrder.length - 1]} />
-      <Articles
+      {/* <Articles
         articles={lastArticles}
         title="Derniers articles"
         category="destinations"
         query=""
-      />
+      /> */}
       <Articles
         articles={conseilsArticles}
         title="Conseils et Astuces"
