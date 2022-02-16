@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import MyImage from "../../components/image"
+import MyImage from "./image"
 
 const BannerArticle = ({ image, title }) => {
   return (

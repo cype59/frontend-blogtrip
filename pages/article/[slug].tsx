@@ -1,9 +1,9 @@
 import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
-import { fetchAPI, getStrapiURL } from "../../lib/api"
+import { fetchAPI } from "../../lib/api"
 import Nav from "../../components/nav"
 import Seo from "../../components/seo"
-import BannerArticle from "./bannerArticle"
+import BannerArticle from "../../components/bannerArticle"
 import styled from "styled-components"
 import React, { useEffect, useState } from "react"
 import DisqusComments from "../../components/DisqusComments"
@@ -46,7 +46,7 @@ const Article = ({ article, categories }) => {
     strapiUrl = `http://localhost:1337${article.image.url}`
   }
 
-  const { data, loading, error } = usePalette(strapiUrl)
+  const { data } = usePalette(strapiUrl)
 
   const getHeadings = (source) => {
     const regex = /^# (.*$)/gim
