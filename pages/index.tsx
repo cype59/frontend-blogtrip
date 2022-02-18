@@ -114,6 +114,10 @@ const Home = ({ articles, categories, homepage }) => {
 
 const AproposContainer = styled.div`
   margin-top: 7%;
+
+  @media (max-width: 768px) {
+    margin-top: 10%;
+  }
 `
 
 const AProposCard = styled(motion.div)`
@@ -127,8 +131,10 @@ const AProposCard = styled(motion.div)`
   cursor: pointer;
 
   @media (max-width: 768px) {
+    flex-direction: column;
     width: 90%;
     margin-left: 5%;
+    margin-bottom: -5vw;
   }
 `
 
@@ -139,6 +145,7 @@ const StyledImage = styled.div`
 
   @media (max-width: 768px) {
     width: 30vw;
+    margin: auto;
   }
 `
 
@@ -148,19 +155,25 @@ const RigthContainer = styled.div`
   margin-top: auto;
   margin-bottom: auto;
 
+  @media (max-width: 768px) {
+    margin: auto;
+    width: 80%;
+  }
+
   h1 {
     font-family: "Arial Rounded MT Bold", sans-serif;
     font-size: 2.5vw;
 
     @media (max-width: 768px) {
-      font-size: 3.6vw;
+      font-size: 4.5vw;
+      text-align: center;
     }
 
     span {
       font-size: 1.2vw;
 
       @media (max-width: 768px) {
-        font-size: 2vw;
+        font-size: 2.5vw;
       }
     }
   }
@@ -173,7 +186,7 @@ const RigthContainer = styled.div`
     margin-top: -5px;
 
     @media (max-width: 768px) {
-      font-size: 2.7vw;
+      font-size: 3.3vw;
     }
   }
 
@@ -181,6 +194,7 @@ const RigthContainer = styled.div`
     display: none;
     @media (max-width: 768px) {
       display: block;
+      text-align: center;
     }
   }
 `
