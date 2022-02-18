@@ -43,8 +43,8 @@ const Apropos = ({ categories }) => {
           <p>
             Pour ma part, j’ai toujours eu la chance de beaucoup voyager avec
             mes parents et j’ai donc cette « fibre voyage » en moi depuis
-            enfant. Donc forcement, quand Baptiste a pensé à cette possibilité
-            de faire le tour du monde,
+            enfant. Forcement, quand Baptiste a pensé à cette possibilité de
+            faire le tour du monde,
             <strong> j’ai tout de suite accroché !</strong>
           </p>
           <p>
@@ -74,7 +74,7 @@ const Apropos = ({ categories }) => {
             Bapt et moi allons essayé de partager un maximum d’infos sur notre
             périple pour tenir au courant nos lecteurs (hello papa maman) ! Et
             puis si ce blog peut motiver certains d’entre vous à sauter le pas
-            pour voyager ce sera d’autant plus cool !
+            pour voyager ce sera d’autant plus chouette !
           </p>
           <h2>
             A au fait, nous sommes partis depuis le 28 février 2022 et
