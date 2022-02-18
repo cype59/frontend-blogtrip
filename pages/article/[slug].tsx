@@ -117,20 +117,21 @@ const Article = ({ article, categories }) => {
                         hover={buttonHover && indexHover === index}
                       ></ContentCircle>
                     </Link>
-                    <ContentCard
-                      show={buttonHover && indexHover === index && show}
-                      color={data.lightMuted}
+                    <Link
+                      smooth={true}
+                      duration={500}
+                      to={heading.link}
+                      offset={-100}
                     >
-                      <ContentTitle
-                        smooth={true}
-                        duration={500}
-                        to={heading.link}
-                        offset={-100}
-                        className="contentTitle"
+                      <ContentCard
+                        show={buttonHover && indexHover === index && show}
+                        color={data.lightMuted}
                       >
-                        {heading.text}
-                      </ContentTitle>
-                    </ContentCard>
+                        <ContentTitle className="contentTitle">
+                          {heading.text}
+                        </ContentTitle>
+                      </ContentCard>
+                    </Link>
                   </motion.div>
                 </li>
               ))}
@@ -265,7 +266,7 @@ const ContentCircle = styled.span<IContentCircleProps>`
   cursor: pointer;
 `
 
-const ContentTitle = styled(Link)`
+const ContentTitle = styled.div`
   color: #111111;
   font-size: 1rem;
   font-weight: 700;
