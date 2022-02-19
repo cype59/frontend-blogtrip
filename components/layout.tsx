@@ -7,7 +7,7 @@ const Layout = ({ children, categories }) => (
   <Container>
     <Nav categories={categories} />
     <div style={{ flex: "1 0 auto" }}>{children}</div>
-    <Footer categories={categories} />
+    <Footer />
   </Container>
 )
 

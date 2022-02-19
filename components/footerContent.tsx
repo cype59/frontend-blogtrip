@@ -19,7 +19,7 @@ interface IContext {
   }
 }
 
-const FooterContent = ({ categories }) => {
+const FooterContent = () => {
   const { location } = useContext(GlobalContext) as IContext
 
   return (

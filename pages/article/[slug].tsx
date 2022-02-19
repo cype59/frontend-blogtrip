@@ -164,7 +164,7 @@ const Article = ({ article, categories }) => {
       </ContainerGrid>
       <CommentsContainer color={data.darkVibrant}>
         <DisqusComments article={article} />
-        <FooterContent categories={categories} />
+        <FooterContent />
       </CommentsContainer>
     </div>
   )
