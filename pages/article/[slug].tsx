@@ -380,15 +380,26 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
 
   ul {
     list-style: none;
+    margin-left: 20px;
+
+    @media (max-width: 768px) {
+      margin-left: 0px;
+    }
+  }
+
+  li {
+    text-indent: -15px;
+    margin-bottom: 0.5em;
   }
 
   li::before {
     content: "•";
     color: ${(props) => (props.colorLi ? props.colorLi : "#111111")};
     display: inline-block;
-    width: 0.8em;
-    font-size: 2em;
-    vertical-align: middle;
+    width: 15px;
+    font-size: 36px;
+    vertical-align: bottom;
+    margin-bottom: -14px;
   }
 
   iframe {
@@ -423,6 +434,10 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     text-align: justify;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     /* box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); */
+
+    @media (max-width: 768px) {
+      margin: 1.5em 5px;
+    }
   }
 
   blockquote p {

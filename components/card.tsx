@@ -84,8 +84,8 @@ const CardItem = styled.div`
 
 const CardTitle = styled.h3`
   color: white;
-  text-shadow: 0px 0px 5px rgb(0, 0, 0);
-  font-weight: 800;
+  text-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  font-weight: 100;
   font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
   margin-left: 1rem;

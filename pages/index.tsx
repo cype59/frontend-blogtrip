@@ -161,7 +161,7 @@ const RigthContainer = styled.div`
   }
 
   h1 {
-    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-family: "Roboto", "Open Sans", sans-serif;
     font-size: 2.5vw;
 
     @media (max-width: 768px) {

@@ -111,7 +111,7 @@ const Navbar = styled.div<NavbarProps>`
   align-items: center;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 70px;
   z-index: 5;
   display: flex;
   justify-content: space-between;
@@ -130,7 +130,7 @@ const Navbar = styled.div<NavbarProps>`
 
 const Logo = styled.div`
   position: relative;
-  width: 70px;
+  width: 85px;
   height: auto;
   cursor: pointer;
 
@@ -163,7 +163,7 @@ const SocialMedia = styled.div`
 
 const Name = styled.a`
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: "Bebas Neue", "Open Sans", sans-serif;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -175,12 +175,12 @@ const Name = styled.a`
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 5px;
     transform: translateX(-50%) scaleX(0);
     transform-origin: 50% 50%;
     width: 100%;
     height: 2px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(255, 255, 255);
     transition: transform 250ms;
   }
 

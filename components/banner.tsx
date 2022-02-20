@@ -72,20 +72,21 @@ const BannerItem = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     text-align: center;
   }
 `
 
-const ArticleTitle = styled.div`
+const ArticleTitle = styled.h1`
   color: white;
   position: relative;
   font-size: 9vw;
   font-weight: 800;
   font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
   text-transform: uppercase;
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  margin: 0;
 
   @media (max-width: 1024px) {
     font-size: 9vw;
@@ -129,7 +130,7 @@ const BannerButton = styled(motion.button)`
   }
 
   @media (max-width: 768px) {
-    font-size: 3vw;
+    font-size: 6vw;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     padding-left: 1rem;
@@ -142,7 +143,7 @@ const BannerText = styled.div`
   vertical-align: middle;
   color: white;
   font-size: 1.8vw;
-  text-shadow: 0px 0px 20px rgb(0 0 0);
+  text-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
   font-family: "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
 
   p {
@@ -155,7 +156,7 @@ const BannerText = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 3vw;
+    font-size: 5vw;
     text-align: left;
     p {
       margin-top: 5px;
