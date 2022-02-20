@@ -202,17 +202,19 @@ const StyledLottieWrapper = styled.div`
   align-items: center;
   padding: 0 20px;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   h2 {
-    font-size: 1.5vw;
+    font-size: 22px;
     font-family: "Roboto", "Open Sans", sans-serif;
     color: "#333333";
     text-align: left;
-    @media (max-width: 1024px) {
-      font-size: 2vw;
-    }
 
     @media (max-width: 768px) {
-      font-size: 3vw;
+      font-size: 20px;
+      text-align: center;
     }
   }
 `
@@ -227,17 +229,14 @@ const StyledForm = styled.form`
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
 
   h2 {
-    font-size: 1.5vw;
+    font-size: 22px;
     font-family: "Roboto", "Open Sans", sans-serif;
     color: "#333333";
     margin-bottom: 2em;
     text-align: center;
-    @media (max-width: 1024px) {
-      font-size: 2vw;
-    }
 
     @media (max-width: 768px) {
-      font-size: 3vw;
+      font-size: 20px;
     }
   }
 `

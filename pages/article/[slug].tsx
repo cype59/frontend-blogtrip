@@ -376,6 +376,10 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     -webkit-text-size-adjust: 100%;
     color: #111111;
     text-align: justify;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   ul {

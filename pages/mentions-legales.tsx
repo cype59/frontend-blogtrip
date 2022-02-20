@@ -8,7 +8,7 @@ const MentionsLegales = ({ categories }) => {
     <Layout categories={categories}>
       <div>
         <HeaderCategory
-          bgColor={"#878472"}
+          bgColor={"#0F4C5C"}
           category={"MentionsLegales"}
           title={"Mentions Légales"}
         />

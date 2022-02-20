@@ -57,7 +57,11 @@ const FooterContent = () => {
             {/* <a href="/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTiktok} size="3x" />
             </a> */}
-            <a href="/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.youtube.com/channel/UC-p1cqrppzJUpYrnGgKdpfw/featured"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faYoutube} size="3x" />
             </a>
           </SocialMedia>

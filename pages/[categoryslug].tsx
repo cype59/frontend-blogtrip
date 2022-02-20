@@ -246,11 +246,8 @@ const FilterButton = styled(motion.button)`
     transition: all 0.4s;
   }
 
-  @media (max-width: 1024px) {
-  }
-
   @media (max-width: 768px) {
-    font-size: 1.8vw;
+    font-size: 3vw;
   }
 `
 

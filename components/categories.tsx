@@ -1,11 +1,8 @@
 import Link from "next/link"
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import px2vw from "../utils/px2vw"
 import Card from "./card"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
-import { AnimatePresence, motion } from "framer-motion"
 
 const Categories = ({ categories }) => {
   var ghostCol = []
@@ -41,25 +38,6 @@ const Container = styled.div`
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 3rem;
-`
-
-const RowTitle = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const Title = styled.h2`
-  font-family: "Arial Rounded MT Bold", sans-serif;
-`
-
-const RowLink = styled.p`
-  font-family: "Arial Rounded MT Bold", sans-serif;
-  color: #494949;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-left: 0.5rem;
-  padding-top: 6px;
-  cursor: pointer;
 `
 
 const Grid = styled.div`

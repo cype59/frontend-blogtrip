@@ -11,7 +11,7 @@ const Apropos = ({ categories }) => {
     <Layout categories={categories}>
       <div>
         <HeaderCategory
-          bgColor={"#DFD5A5"}
+          bgColor={"#0F4C5C"}
           category={"aPropos"}
           title={"A propos"}
         />
@@ -147,18 +147,15 @@ const Container = styled.div`
   }
 
   h2 {
-    font-size: 1.5vw;
+    font-size: 22px;
     font-family: "Roboto", "Open Sans", sans-serif;
     color: "#333333";
     margin-bottom: 2em;
     margin-top: 2em;
     text-align: justify;
-    @media (max-width: 1024px) {
-      font-size: 3vw;
-    }
 
     @media (max-width: 768px) {
-      font-size: 4.5vw;
+      font-size: 20px;
     }
   }
   p {
@@ -169,6 +166,10 @@ const Container = styled.div`
     -webkit-text-size-adjust: 100%;
     color: #111111;
     text-align: justify;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   strong {
