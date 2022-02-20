@@ -111,7 +111,7 @@ const Navbar = styled.div<NavbarProps>`
   align-items: center;
   top: 0;
   width: 100%;
-  height: 70px;
+  height: 64px;
   z-index: 5;
   display: flex;
   justify-content: space-between;
