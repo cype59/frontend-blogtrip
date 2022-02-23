@@ -88,13 +88,11 @@ const Home = ({ articles, categories, homepage }) => {
               <Image src={profilCyrilBapt} alt="baptiste et Moi (Cyril)" />
             </StyledImage>
             <RigthContainer>
-              <h1>
-                Hello ! Moi c&apos;est Cyril <span>(à droite)</span>
-              </h1>
+              <h1>Hello ! Nous c&apos;est Bapt et Cyril</h1>
               <p>
-                Avec mon pote Baptiste, on a décidé de partir en tour du monde
-                pendant 1 an. Sur ce blog on y racontera nos récits et périples
-                d’aventure.
+                On est meilleurs potes depuis l&apos;enfance et on a décidé de
+                partir ensemble en tour du monde pendant 1 an. Sur ce blog on y
+                racontera nos récits et périples d’aventure.
               </p>
               <p className="p_mobile">
                 <FontAwesomeIcon
