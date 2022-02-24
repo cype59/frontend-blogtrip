@@ -119,3 +119,4 @@ build
 
 .next
 .env.build
+.env.local
