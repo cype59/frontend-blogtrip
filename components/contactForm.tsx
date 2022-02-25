@@ -195,7 +195,6 @@ const StyledFormWrapper = styled.div`
   height: 100vh;
   padding: 0 20px;
 `
-
 const StyledLottieWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -254,9 +253,6 @@ const StyledInput = styled.input<IStyledInput>`
   width: 100%;
   ${sharedStyles}
   border: ${(props) => props.error && "2px solid red"};
-  :focus {
-    border: 1px solid #00c774;
-  }
 `
 
 const StyledTextArea = styled.textarea<IStyledInput>`

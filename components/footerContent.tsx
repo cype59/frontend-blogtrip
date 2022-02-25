@@ -11,6 +11,7 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons"
 import Link from "next/link"
+import NewsletterSubscribe from "./NewsletterSubscribe"
 
 interface IContext {
   location: {
@@ -44,6 +45,9 @@ const FooterContent = () => {
             />
           </Form>
         </Col> */}
+        <Col>
+          <NewsletterSubscribe />
+        </Col>
         <Col>
           <TitleSection>Suis moi sur les réseaux</TitleSection>
           <SocialMedia>
@@ -125,7 +129,7 @@ const Col = styled.div`
   }
 `
 
-const TitleSection = styled.div`
+export const TitleSection = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
