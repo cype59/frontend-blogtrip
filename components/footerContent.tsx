@@ -3,7 +3,6 @@ import styled from "styled-components"
 import px2vw from "../utils/px2vw"
 import { GlobalContext } from "../pages/_app"
 import MyImage from "./image"
-import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faInstagram,
@@ -33,18 +32,6 @@ const FooterContent = () => {
           </WorldMap>
           <LocationName>{location.name}</LocationName>
         </Col>
-        {/* <Col>
-          <TitleSection>Newsletter</TitleSection>
-          <Form>
-            <Email type="email" placeholder="Ton email" />
-            <Submit
-              type="submit"
-              value="S'inscrire"
-              whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.1 }}
-            />
-          </Form>
-        </Col> */}
         <Col>
           <NewsletterSubscribe />
         </Col>
@@ -52,7 +39,7 @@ const FooterContent = () => {
           <TitleSection>Suis moi sur les réseaux</TitleSection>
           <SocialMedia>
             <a
-              href="https://www.instagram.com/cyrilprn"
+              href="https://www.instagram.com/bapt_et_cycy"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -162,64 +149,6 @@ const LocationName = styled.p`
   font-family: "Roboto", "Open Sans", sans-serif;
   font-size: 1rem;
   color: white;
-`
-
-const Form = styled.form`
-  margin: 0 15%;
-  margin-top: 5%;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  font-family: "Roboto", "Open Sans", sans-serif;
-`
-const Email = styled.input`
-  text-align: center;
-  color: #111111;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 50px;
-  border: none;
-  font-size: 1.1rem;
-
-  @media (max-width: 768px) {
-    height: 30px;
-  }
-`
-const Submit = styled(motion.input)`
-  margin: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  border-radius: 6px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: #000;
-  background-color: #e6e6e6;
-  font-size: 1.5vw;
-  font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
-
-  &:hover {
-    color: #fff;
-    background-color: rgba(51, 51, 51, 0.5);
-    transition: all 0.4s;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 2.5vw;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 3vw;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    height: 40px;
-  }
 `
 
 const SocialMedia = styled.div`

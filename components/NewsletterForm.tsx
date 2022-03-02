@@ -87,11 +87,19 @@ const NewsletterForm = ({ status, message, onValidated }) => {
           >
             S&apos;inscrire
           </Submit>
+          <div style={{ height: "50px" }}>
+            {(status === "error" || error) && (
+              <StyledError>Ton email n&apos;est pas valide</StyledError>
+            )}
+            {status === "sending" && <StyledSending>Envoi...</StyledSending>}
+          </div>
+
+          {/* {status === "sending" && <StyledSending>Envoi...</StyledSending>}
           {status === "error" || error ? (
             <StyledError>Ton email n&apos;est pas valide</StyledError>
           ) : (
             <div style={{ height: "50px" }}></div>
-          )}
+          )} */}
         </Form>
       )}
     </>
@@ -119,6 +127,14 @@ const StyledLottieWrapper = styled.div`
 
 const StyledError = styled.div`
   color: red;
+  font-weight: 800;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  height: 40px;
+  padding-top: 10px;
+`
+
+const StyledSending = styled.div`
+  color: green;
   font-weight: 800;
   font-family: "Roboto", "Open Sans", sans-serif;
   height: 40px;

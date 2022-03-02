@@ -61,7 +61,7 @@ const Nav = ({ categories }) => {
         </NavbarItems>
         <SocialMedia>
           <a
-            href="https://www.instagram.com/cyrilprn"
+            href="https://www.instagram.com/bapt_et_cycy"
             target="_blank"
             rel="noopener noreferrer"
           >
