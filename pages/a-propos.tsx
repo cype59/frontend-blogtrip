@@ -71,7 +71,7 @@ const Apropos = ({ categories }) => {
             voyage.
           </p>
           <p>
-            Bapt et moi allons essayé de partager un maximum d’infos sur notre
+            Bapt et moi allons essayer de partager un maximum d’infos sur notre
             périple pour tenir au courant nos lecteurs (hello papa maman) ! Et
             puis si ce blog peut motiver certains d’entre vous à sauter le pas
             pour voyager ce sera d’autant plus chouette !
