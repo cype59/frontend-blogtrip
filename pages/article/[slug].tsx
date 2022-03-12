@@ -258,6 +258,7 @@ const NavHeadings = styled.div`
     height: auto;
     z-index: 10;
     align-items: center;
+    bottom: -1px;
   }
 `
 
@@ -309,7 +310,7 @@ const StyledMenu = styled.nav<IStyledBurgerProps>`
     }
     display: flex;
     position: absolute;
-    top: -29px;
+    top: -26px;
     left: 0;
     width: 100%;
     flex-direction: column;
