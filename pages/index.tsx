@@ -29,14 +29,12 @@ const Home = ({ articles, categories, homepage }) => {
   //   .slice(articlesInOrder.length - 4, articlesInOrder.length)
   //   .reverse()
 
-  let AmSArticles =
+  let MexiqueArticles =
     articlesInOrder &&
-    articlesInOrder.filter(
-      (article) => article.continent?.slug === "amerique-du-sud"
-    )
-  AmSArticles = AmSArticles.slice(
-    AmSArticles.length - 4,
-    AmSArticles.length
+    articlesInOrder.filter((article) => article.country?.slug === "mexique")
+  MexiqueArticles = MexiqueArticles.slice(
+    MexiqueArticles.length - 4,
+    MexiqueArticles.length
   ).reverse()
 
   let conseilsArticles =
@@ -63,10 +61,10 @@ const Home = ({ articles, categories, homepage }) => {
         query=""
       />
       <Articles
-        articles={AmSArticles}
-        title="Amérique du Sud"
+        articles={MexiqueArticles}
+        title="Mexique"
         category="destinations"
-        query="amerique-du-sud"
+        query="mexique"
       />
       <AproposContainer>
         <Link as={`/a-propos`} href={`/a-propos`} passHref>

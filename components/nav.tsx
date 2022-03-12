@@ -96,6 +96,9 @@ const Nav = ({ categories }) => {
           <Link href="/conseils" passHref>
             <Name className="NameMenu">Conseils</Name>
           </Link>
+          <Link href="/journal" passHref>
+            <Name className="NameMenu">Journal</Name>
+          </Link>
         </StyledMenu>
       </NavbarBurger>
     </div>

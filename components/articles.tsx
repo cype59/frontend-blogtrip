@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion"
 interface IHref {
   pathname: string
   query?: {
-    continent: string
+    country: string
   }
 }
 
@@ -26,7 +26,7 @@ const Articles = ({ articles, title, category, query }) => {
     href = {
       pathname: category,
       query: {
-        continent: query,
+        country: query,
       },
     }
   } else {

@@ -16,29 +16,31 @@ interface ContinentColor {
   color: string
 }
 
-const Category = ({ category, categories, continents }) => {
+const Category = ({ category, categories, countries }) => {
   const seo = {
     metaTitle: category.name,
     metaDescription: `All ${category.name} articles`,
   }
 
+  console.log(countries)
+
   const ContinentsColor: ContinentColor[] = [
+    // {
+    //   category: "asie-du-sud-est",
+    //   color: "#9b5ab4",
+    // },
+    // {
+    //   category: "asie-du-sud",
+    //   color: "#e64b3c",
+    // },
     {
-      category: "asie-du-sud-est",
-      color: "#9b5ab4",
-    },
-    {
-      category: "asie-du-sud",
-      color: "#e64b3c",
-    },
-    {
-      category: "amerique-du-sud",
+      category: "mexique",
       color: "#2dc873",
     },
-    {
-      category: "amerique-centrale",
-      color: "#3296dc",
-    },
+    // {
+    //   category: "amerique-centrale",
+    //   color: "#3296dc",
+    // },
     {
       category: "destinations",
       color: "#f0c30f",
@@ -46,6 +48,10 @@ const Category = ({ category, categories, continents }) => {
     {
       category: "conseils",
       color: "#ff5917",
+    },
+    {
+      category: "journal",
+      color: "#5fbd5c",
     },
   ]
 
@@ -61,12 +67,12 @@ const Category = ({ category, categories, continents }) => {
       : 0
   }
 
-  if (query.continent) {
+  if (query.country) {
     bgColor = ContinentsColor.find(
-      (item) => query.continent === item.category
+      (item) => query.country === item.category
     ).color
-    articles = continents.find(
-      (continent) => query.continent === continent.slug
+    articles = countries.find(
+      (country) => query.country === country.slug
     ).articles
   } else {
     bgColor = ContinentsColor.find(
@@ -88,30 +94,30 @@ const Category = ({ category, categories, continents }) => {
       <ContinentContainer>
         <ContainerRow>
           <ContinentFilter>
-            {category.continents.map((continent, i) => {
+            {category.countries.map((country, i) => {
               return (
                 <Link
                   href={{
                     pathname: `/${category.slug}`,
-                    query: { continent: `${continent.slug}` },
+                    query: { country: `${country.slug}` },
                   }}
-                  key={continent.slug}
+                  key={country.slug}
                   shallow={true}
                   passHref
                 >
                   <ContinentName
                     bgColor={bgColor}
-                    active={continent.slug === query.continent}
+                    active={country.slug === query.country}
                     whileHover={{ scale: 1.1 }}
                   >
-                    {continent.name}
+                    {country.name}
                   </ContinentName>
                 </Link>
               )
             })}
           </ContinentFilter>
           <AnimatePresence>
-            {query.continent && (
+            {query.country && (
               <Link
                 href={{
                   pathname: `/${category.slug}`,
@@ -163,10 +169,10 @@ export async function getStaticProps({ params }) {
     await fetchAPI(`/categories?slug=${params.categoryslug}`)
   )[0]
   const categories = await fetchAPI("/categories")
-  const continents = await fetchAPI("/continents")
+  const countries = await fetchAPI("/countries")
 
   return {
-    props: { category, categories, continents },
+    props: { category, categories, countries },
     revalidate: 1,
   }
 }

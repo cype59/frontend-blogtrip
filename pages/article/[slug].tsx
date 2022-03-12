@@ -14,6 +14,8 @@ import FooterContent from "../../components/footerContent"
 import illuToucan from "../../images/illuToucan.png"
 import illuParesseux from "../../images/illuParesseux.png"
 import Image from "next/image"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faList } from "@fortawesome/free-solid-svg-icons"
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -26,6 +28,7 @@ const Article = ({ article, categories }) => {
   const [show, handleShow] = useState(false)
   const [buttonHover, handleButtonHover] = useState(false)
   const [indexHover, handleIndexHover] = useState<number>(-1)
+  const [open, setOpen] = useState(true)
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -138,6 +141,33 @@ const Article = ({ article, categories }) => {
             </VerticalList>
           ) : null}
         </GridColumn>
+        <MobileHeadings>
+          <NavHeadings>
+            <StyledBurger open={open} onClick={() => setOpen(!open)}>
+              <FontAwesomeIcon icon={faList} size="2x" />
+            </StyledBurger>
+          </NavHeadings>
+
+          <StyledMenu open={open} color={data.darkVibrant}>
+            <h1>SOMMAIRE</h1>
+            {headings.map((heading, index) => (
+              <li
+                key={heading.text}
+                style={{ listStyle: "none", cursor: "pointer" }}
+              >
+                <Link
+                  smooth={true}
+                  duration={500}
+                  to={heading.link}
+                  offset={-100}
+                  // onClick={() => setOpen(!open)}
+                >
+                  <MobileTitle>{heading.text}</MobileTitle>
+                </Link>
+              </li>
+            ))}
+          </StyledMenu>
+        </MobileHeadings>
 
         <ArticleContainer
           colorH1={data.darkVibrant}
@@ -207,12 +237,88 @@ const CommentsContainer = styled.div<IVerticalLineProps>`
   border-top: ${(props) => `20px solid ${props.color}`};
 
   margin-top: 5%;
+  z-index: 2;
 `
 
 const GridColumn = styled.div`
   width: 20%;
   @media (max-width: 1024px) {
     display: none;
+  }
+`
+
+const NavHeadings = styled.div`
+  display: none;
+  @media (max-width: 1024px) {
+    display: flex;
+    position: fixed;
+    right: 0;
+    background-color: #111111;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    align-items: center;
+  }
+`
+
+const MobileHeadings = styled.div`
+  display: none;
+  @media (max-width: 1024px) {
+    display: flex;
+    position: fixed;
+    right: 0;
+    bottom: 29px;
+    width: 100%;
+    align-items: center;
+    z-index: 10;
+  }
+`
+
+const MobileTitle = styled.div`
+  padding: 10px 0;
+  color: #ffffff;
+  transition: color 0.3s linear;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Roboto", "Open Sans", sans-serif;
+`
+
+interface IStyledBurgerProps {
+  open: boolean
+  color?: string
+}
+
+const StyledBurger = styled.button<IStyledBurgerProps>`
+  color: white;
+  background: transparent;
+  padding-left: 30px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+`
+
+const StyledMenu = styled.nav<IStyledBurgerProps>`
+  display: none;
+  @media (max-width: 1024px) {
+    h1 {
+      font-family: "Bebas Neue", "Roboto", "Open Sans", sans-serif;
+      font-size: 2rem;
+      color: white;
+    }
+    display: flex;
+    position: absolute;
+    top: -29px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background: ${(props) => props.color};
+    transform: ${(props) =>
+      props.open ? "translateY(0%)" : "translateY(-100%)"};
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
   }
 `
 
@@ -463,6 +569,7 @@ const ArticleContainer = styled.div<IArticleContainerProps>`
     display: flex;
     margin-top: 3em;
     margin-bottom: 3em;
+    z-index: 0;
 
     &::after {
       position: relative;
