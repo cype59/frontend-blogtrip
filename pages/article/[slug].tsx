@@ -16,6 +16,7 @@ import illuParesseux from "../../images/illuParesseux.png"
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faList } from "@fortawesome/free-solid-svg-icons"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 const Article = ({ article, categories }) => {
   const seo = {
@@ -144,7 +145,7 @@ const Article = ({ article, categories }) => {
         <MobileHeadings>
           <NavHeadings>
             <StyledBurger open={open} onClick={() => setOpen(!open)}>
-              <FontAwesomeIcon icon={faList} size="2x" />
+              <FontAwesomeIcon icon={faList as IconProp} size="2x" />
             </StyledBurger>
           </NavHeadings>
 

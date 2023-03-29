@@ -5,15 +5,21 @@ import styled from "styled-components"
 import React from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, AnimatePresenceProps } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes } from "@fortawesome/free-solid-svg-icons"
 import ArticlesFilter from "../components/articlesFilter"
 import HeaderCategory from "../components/headerCategory"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 interface ContinentColor {
   category: string
   color: string
+}
+
+interface NewAnimatePresenceProps
+  extends Omit<AnimatePresenceProps, "children"> {
+  children: React.ReactNode
 }
 
 const Category = ({ category, categories, countries }) => {
@@ -22,23 +28,25 @@ const Category = ({ category, categories, countries }) => {
     metaDescription: `All ${category.name} articles`,
   }
 
+  console.log(categories)
+
   const ContinentsColor: ContinentColor[] = [
-    // {
-    //   category: "asie-du-sud-est",
-    //   color: "#9b5ab4",
-    // },
-    // {
-    //   category: "asie-du-sud",
-    //   color: "#e64b3c",
-    // },
+    {
+      category: "vietnam",
+      color: "#9b5ab4",
+    },
+    {
+      category: "perou",
+      color: "#e64b3c",
+    },
     {
       category: "mexique",
       color: "#2dc873",
     },
-    // {
-    //   category: "amerique-centrale",
-    //   color: "#3296dc",
-    // },
+    {
+      category: "thailande",
+      color: "#3296dc",
+    },
     {
       category: "destinations",
       color: "#f0c30f",
@@ -47,13 +55,10 @@ const Category = ({ category, categories, countries }) => {
       category: "conseils",
       color: "#ff5917",
     },
-    {
-      category: "journal",
-      color: "#5fbd5c",
-    },
   ]
 
   const { query } = useRouter()
+  const NewAnimatePresence: React.FC<NewAnimatePresenceProps> = AnimatePresence
   let bgColor: string = "#f0c30f"
   let articles
 
@@ -66,16 +71,16 @@ const Category = ({ category, categories, countries }) => {
   }
 
   if (query.country) {
-    bgColor = ContinentsColor.find(
-      (item) => query.country === item.category
-    ).color
+    // bgColor = ContinentsColor.find(
+    //   (item) => query.country === item.category
+    // ).color
     articles = countries.find(
       (country) => query.country === country.slug
     ).articles
   } else {
-    bgColor = ContinentsColor.find(
-      (item) => category.slug === item.category
-    ).color
+    // bgColor = ContinentsColor.find(
+    //   (item) => category.slug === item.category
+    // ).color
     articles = categories.find((item) => category.slug === item.slug).articles
   }
 
@@ -85,7 +90,8 @@ const Category = ({ category, categories, countries }) => {
     <Layout categories={categories}>
       <Seo seo={seo} />
       <HeaderCategory
-        bgColor={bgColor}
+        // bgColor={bgColor}
+        bgColor="#2dc873"
         category={category.slug}
         title={category.name}
       />
@@ -104,7 +110,8 @@ const Category = ({ category, categories, countries }) => {
                   passHref
                 >
                   <ContinentName
-                    bgColor={bgColor}
+                    // bgColor={bgColor}
+                    bgColor="#2dc873"
                     active={country.slug === query.country}
                     whileHover={{ scale: 1.1 }}
                   >
@@ -114,7 +121,7 @@ const Category = ({ category, categories, countries }) => {
               )
             })}
           </ContinentFilter>
-          <AnimatePresence>
+          <NewAnimatePresence>
             {query.country && (
               <Link
                 href={{
@@ -133,7 +140,7 @@ const Category = ({ category, categories, countries }) => {
                     whileHover={{ scale: 1.1 }}
                   >
                     <FontAwesomeIcon
-                      icon={faTimes}
+                      icon={faTimes as IconProp}
                       style={{ marginRight: "0.5rem" }}
                     />
                     Filtre
@@ -141,7 +148,7 @@ const Category = ({ category, categories, countries }) => {
                 </motion.div>
               </Link>
             )}
-          </AnimatePresence>
+          </NewAnimatePresence>
         </ContainerRow>
       </ContinentContainer>
       <ArticlesFilter articles={articles} />
