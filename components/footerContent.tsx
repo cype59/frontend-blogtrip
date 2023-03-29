@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import Link from "next/link"
 import NewsletterSubscribe from "./NewsletterSubscribe"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 interface IContext {
   location: {
@@ -43,7 +44,7 @@ const FooterContent = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faInstagram} size="3x" />
+              <FontAwesomeIcon icon={faInstagram as IconProp} size="3x" />
             </a>
             {/* <a href="/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTiktok} size="3x" />
@@ -53,7 +54,7 @@ const FooterContent = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faYoutube} size="3x" />
+              <FontAwesomeIcon icon={faYoutube as IconProp} size="3x" />
             </a>
           </SocialMedia>
         </Col>

@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import px2vw from "../utils/px2vw"
 import Card from "./card"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, AnimatePresenceProps, motion } from "framer-motion"
 
 interface IHref {
   pathname: string
@@ -12,9 +12,15 @@ interface IHref {
   }
 }
 
+interface NewAnimatePresenceProps
+  extends Omit<AnimatePresenceProps, "children"> {
+  children: React.ReactNode
+}
+
 const Articles = ({ articles, title, category, query }) => {
   const [isHover, setIsHover] = useState(false)
 
+  const NewAnimatePresence: React.FC<NewAnimatePresenceProps> = AnimatePresence
   var ghostCol = []
   for (var i = 0; i < 4 - articles.length; i++) {
     ghostCol.push(<Col key={i}></Col>)
@@ -50,7 +56,7 @@ const Articles = ({ articles, title, category, query }) => {
           <Link href={href} passHref>
             <RowLinkMobile>Voir tout</RowLinkMobile>
           </Link>
-          <AnimatePresence>
+          <NewAnimatePresence>
             {isHover && (
               <motion.div
                 initial={{
@@ -73,7 +79,7 @@ const Articles = ({ articles, title, category, query }) => {
                 </Link>
               </motion.div>
             )}
-          </AnimatePresence>
+          </NewAnimatePresence>
         </RowTitle>
       </motion.div>
       <Grid>

@@ -10,6 +10,7 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons"
 import { useRouter } from "next/router"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 const Nav = ({ categories }) => {
   const [show, handleShow] = useState(false)
@@ -65,7 +66,7 @@ const Nav = ({ categories }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faInstagram} size="lg" />
+            <FontAwesomeIcon icon={faInstagram as IconProp} size="lg" />
           </a>
           {/* <a href="/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTiktok} size="lg" />

@@ -6,6 +6,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import lottie from "lottie-web"
 import sendLottie from "../lotties/send.json"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 const initalState = {
   nom: "",
@@ -157,7 +158,7 @@ const ContactForm = () => {
           }}
         >
           <FontAwesomeIcon
-            icon={faPaperPlane}
+            icon={faPaperPlane as IconProp}
             style={{ marginRight: "0.5rem" }}
           />
           <ButtonText>ENVOYER</ButtonText>

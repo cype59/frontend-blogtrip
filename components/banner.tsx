@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 const Banner = ({ lastArticle }) => {
   return (
@@ -25,7 +26,7 @@ const Banner = ({ lastArticle }) => {
                 whileHover={{ scale: 1.1 }}
               >
                 <FontAwesomeIcon
-                  icon={faEye}
+                  icon={faEye as IconProp}
                   style={{ marginRight: "0.5rem" }}
                 />
                 Lire

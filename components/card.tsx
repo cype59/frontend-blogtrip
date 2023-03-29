@@ -1,12 +1,20 @@
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, AnimatePresenceProps, motion } from "framer-motion"
 import React, { useState } from "react"
 import styled from "styled-components"
 import MyImage from "./image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMousePointer } from "@fortawesome/free-solid-svg-icons"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
+
+interface NewAnimatePresenceProps
+  extends Omit<AnimatePresenceProps, "children"> {
+  children: React.ReactNode
+}
 
 const Card = ({ article }) => {
   const [isHover, setIsHover] = useState(false)
+
+  const NewAnimatePresence: React.FC<NewAnimatePresenceProps> = AnimatePresence
 
   return (
     <motion.div
@@ -32,7 +40,7 @@ const Card = ({ article }) => {
           <CardTitle>{article.title}</CardTitle>
           <MyImage image={article.image} fullRatio={false} />
         </CardItem>
-        <AnimatePresence>
+        <NewAnimatePresence>
           {isHover && (
             <motion.div
               initial={{
@@ -52,7 +60,7 @@ const Card = ({ article }) => {
                 <p>{article.description}</p>
                 <div>
                   <FontAwesomeIcon
-                    icon={faMousePointer}
+                    icon={faMousePointer as IconProp}
                     style={{ marginRight: "0.5rem" }}
                   />
                   Clic pour lire l&apos;article
@@ -60,7 +68,7 @@ const Card = ({ article }) => {
               </CardDescription>
             </motion.div>
           )}
-        </AnimatePresence>
+        </NewAnimatePresence>
       </Container>
     </motion.div>
   )
