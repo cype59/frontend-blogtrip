@@ -28,8 +28,6 @@ const Category = ({ category, categories, countries }) => {
     metaDescription: `All ${category.name} articles`,
   }
 
-  console.log(categories)
-
   const ContinentsColor: ContinentColor[] = [
     {
       category: "vietnam",

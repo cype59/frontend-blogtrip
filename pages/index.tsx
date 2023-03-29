@@ -15,6 +15,7 @@ import Link from "next/link"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHandPointer } from "@fortawesome/free-solid-svg-icons"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 const Home = ({ articles, categories, homepage }) => {
   function compareNombres(a, b) {
@@ -94,7 +95,7 @@ const Home = ({ articles, categories, homepage }) => {
               </p>
               <p className="p_mobile">
                 <FontAwesomeIcon
-                  icon={faHandPointer}
+                  icon={faHandPointer as IconProp}
                   style={{ marginRight: "0.5rem" }}
                 />
                 Clic pour connaitre notre histoire
